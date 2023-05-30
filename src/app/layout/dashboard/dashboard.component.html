@@ -1,0 +1,37 @@
+<p>dashboard works!</p>
+<div class="row">
+    <div class="col-3">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="data.drop_selected">
+            <option [value]="">SELECT</option>
+            <option *ngFor="let i of data.drop" [value]="i.cadre_code">{{i.pay_grade_code}}</option>
+            
+          </select>
+    </div>
+    <div class="col-3" style="color:white">{{data.drop_selected}}</div>
+    <div class="col-3"></div>
+    <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search">
+   
+    <div class="col-3">
+        <button class="btn btn-info btn-sm" (click)="getbsa_headerdetailsxml()">call api</button>
+    </div>
+    <div class="col-12">
+        <div class="table-responsive">
+        <table class="table-responsive">
+            <tbody>
+                <tr *ngFor="let i of data.table" style="color:white">
+                    <td class="text-nowrap">{{ i.budget_id }}</td>
+                    <td class="text-nowrap">{{ i.budget_code }}</td>
+                    <td class="text-nowrap">{{ i.proj_code }}</td>
+                    <td class="text-nowrap">{{ i.project_desc }}</td>
+                    <td class="text-nowrap">{{ i.actual_owner }}</td>
+                    <td class="text-nowrap">{{ i.current_status }}</td>
+                    <td class="text-nowrap">{{ i.created_by }}</td>
+                    <td class="text-nowrap">{{ i.status_desc }}</td>
+                    <td class="text-nowrap">{{ i.pa_opportunity_id }}</td>
+                    <td class="text-nowrap">{{ i.ud_user_name }}</td>
+                  </tr>
+            </tbody>
+        </table> 
+        </div>
+    </div>
+</div>
