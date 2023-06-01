@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit{
   
   constructor(private router: Router) { }
   login() {
-     this.router.navigate(['/dashboard'])
+     this.router.navigate(['/emp-raise-req'])
     console.log('data', this.data);
     $.cordys.authentication.sso
       .authenticate(this.data.username, this.data.password)

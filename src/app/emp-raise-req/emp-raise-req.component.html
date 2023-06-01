@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="emp-raise-req.component.css">
+    
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Raise Request</div>
+    <div class="content">
+      <form action="#">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Name</span>
+            <input type="text" placeholder="Enter your name" id="name" name="number" [(ngModel)]="data.name" required>
+          </div>
+     
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" id="email" name="email" [(ngModel)]="data.email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your number" id="number" name="number" [(ngModel)]="data.number" required>
+          </div>
+         
+          <div class="input-box">
+            <span class="details">Category</span>
+            <input type="text" placeholder="Category" id="category" name="category" [(ngModel)]="data.category" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Issue_with</span>
+            <input type="text" placeholder="issue_with" id="issue_with" name="issue_with" [(ngModel)]="data.issue_with" required>
+          </div>
+        </div>
+       
+        <div class="button">
+          <input type="submit" value="Submit" (click)="submit()">
+        </div> 
+      </form>
+    </div>
+  </div>    
+</body>
+</html>
+
+

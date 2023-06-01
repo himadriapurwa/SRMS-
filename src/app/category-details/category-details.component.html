@@ -1,0 +1,24 @@
+GetCategoryAttendeeDetails
+<table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped table-dark table-responsive">
+
+    <!-- <table class="table table-striped table-dark table-responsive"> -->
+       <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped table-dark table-responsive"></table> -->
+       <thead>
+         <tr>
+           <th scope="col">CATEGORY</th>
+           <th scope="col">ATTENDEE</th>
+           <th scope="col">PRIORITY</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           
+           <tr *ngFor="let i of data.table" style="color:white">
+           
+           <td >{{ i.category_name}}</td>
+           <td >{{ i.attendee }}</td>
+           <td >{{ i.attendee_type}}</td>
+          
+         </tr>
+       </tbody>
+     </table>

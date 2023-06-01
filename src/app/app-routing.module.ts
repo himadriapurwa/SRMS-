@@ -4,8 +4,16 @@ import { LayoutComponent } from './layout/layout.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { EmployeeScreenComponent } from './employee-screen/employee-screen.component';
-const routes: Routes = [
+import { L1AttendeeComponent } from './l1-attendee/l1-attendee.component'; 
+import { AdminHistoryComponent } from './admin-history/admin-history.component';
+import { EmpEditRequestComponent } from './emp-edit-request/emp-edit-request.component';
+import { AdminApprovalRequestsComponent } from './admin-approval-requests/admin-approval-requests.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
 
+import { EmpHistoryComponent } from './emp-history/emp-history.component';
+import { EmpRaiseReqComponent } from './emp-raise-req/emp-raise-req.component';
+import { AttendeeRatingsComponent } from './attendee-ratings/attendee-ratings.component';
+const routes: Routes = [
   {
   path: '',
   component: LayoutComponent,
@@ -17,7 +25,30 @@ const routes: Routes = [
 {
   path:'login', component:LoginComponent
 },
-
+{
+  path:'l1-attendee', component:L1AttendeeComponent
+},
+{
+  path:'admin-history', component:AdminHistoryComponent
+},
+{
+  path:'emp-edit-request', component:EmpEditRequestComponent
+},
+{
+  path:'admin-approval-requests', component:AdminApprovalRequestsComponent
+},
+{
+  path:'category-details', component:CategoryDetailsComponent
+},
+{
+  path:'emp-history', component:EmpHistoryComponent
+},
+{
+  path:'emp-raise-req', component:EmpRaiseReqComponent
+},
+{
+  path:'attendee-ratings', component:AttendeeRatingsComponent
+},
 {
   path: '',
   component: EmployeeScreenComponent,
@@ -25,8 +56,6 @@ const routes: Routes = [
     { path: 'raise-newrequest', loadChildren: () => import('./employee-screen/raise-newrequest/raise-request.module').then(m => m.RaiseRequestModule) }
   ]
 },
-
-  { path: 'edit-request', loadChildren: () => import('./employee-screen/edit-request/edit-request.module').then(m => m.EditRequestModule) },
 
   { path: 'employee-history', loadChildren: () => import('./employee-screen/employee-history/employee-history.module').then(m => m.EmployeeHistoryModule) },
 

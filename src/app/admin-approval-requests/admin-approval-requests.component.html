@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+<!-- <h2 style="color:aliceblue">ADMIN HISTORY</h2>
+<table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped table-dark table-responsive"> -->
+
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="admin-approval-requests.component.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+    <div>
+      
+    <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped table-dark table-responsive">
+           <thead>
+             <tr>
+               <th scope="col">REQUEST ID</th>
+               <th scope="col">STATUS</th>
+              
+               <th scope="col">CATEGORY</th>
+               
+               <th scope="col">ISSUE WITH</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               
+               <tr *ngFor="let i of data.table" style="color:white">
+               <td >{{ i.sr_id }}</td>
+               <td >{{ i.status }}</td>
+          
+               <td >{{ i.category }}</td>
+               <td >{{ i.issue_with }}</td>
+
+             </tr>
+           </tbody>
+         </table>
+  <div class="container">
+    <div class="title">Raise Request</div>
+    <div class="content">
+      <form action="#">
+        <div class="user-details">
+         
+          <div class="input-box">
+            <span class="details">Category</span>
+            <input type="text" placeholder="Category" id="category" name="category" [(ngModel)]="data.category" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Issue_with</span>
+            <input type="text" placeholder="issue_with" id="issue_with" name="issue_with" [(ngModel)]="data.issue_with" required>
+          </div>
+        </div>
+       
+        <div class="button">
+          <input type="submit" value="Submit" (click)="submit()">
+        </div> 
+      </form>
+    </div>
+  </div>  
+</div>  
+</body>
+</html>
+
+

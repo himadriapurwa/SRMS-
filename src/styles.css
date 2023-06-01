@@ -2,3 +2,7 @@
 body{
     background-color: rgb(53, 15, 90) ;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
