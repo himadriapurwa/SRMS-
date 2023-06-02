@@ -11,8 +11,7 @@ export class EmpRaiseReqComponent implements OnInit{
     name: '',
     email: '',
     number: '',
-  };
-  
+  };     
   constructor() { }
   submit() {
      //this.router.navigate(['/dashboard'])

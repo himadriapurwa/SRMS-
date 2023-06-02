@@ -1,29 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../hero.service';
-
-declare var $:any;
-
 @Component({
-  selector: 'app-emp-edit-request',
-  templateUrl: './emp-edit-request.component.html',
-  styleUrls: ['./emp-edit-request.component.css']
+  selector: 'app-attendee-pending-req',
+  templateUrl: './attendee-pending-req.component.html',
+  styleUrls: ['./attendee-pending-req.component.css']
 })
-
-
-export class EmpEditRequestComponent implements OnInit{
+export class AttendeePendingReqComponent implements OnInit{
   dtOptions: DataTables.Settings = {};
   data: any={
     table:[],
-  };
-  editData: any = {
-    category: '',
-    issue_with: '',
-    // document1: '',
-  };
+  }
     constructor(private hs: HeroService){ }
-    submit() {
-      console.log('data', this.editData);
-   }
     ngOnInit(): void {
       let that = this;
       this.dtOptions = {
@@ -35,9 +22,9 @@ export class EmpEditRequestComponent implements OnInit{
         ajax: (dataTablesParameters: any, callback) => {
           that.hs
             .ajax(
-              'GetRequestsForApprovalOfAdmin',
+              'GetAttendeeRequests',
               'http://schemas.cordys.com/himadri_srmWSP',
-              {})
+              {l1_attendee:'himadri',l2_attendee:'himadri'})
         
             .then((resp:any) => {
               that.data = that.hs.xmltojson(resp, 'himadri_request_approval');
@@ -55,13 +42,10 @@ export class EmpEditRequestComponent implements OnInit{
         rowCallback: (row: Node, data: any[] | Object, index: number) => {
           const self = this;
           $('td', row).off('click');
-          $('td', row).on('click', function(e:any){
+          $('td', row).on('click', () => {
             self.CopyData(data);
             console.log(data)
-            $('#exampleModal').modal('show');
-            var id = $(e.relatedTarget).data('book-id');
-            $(e.currentTarget).find('input[name="sr_id"]').val(data);
-            console.log('idSeclected: ',id)
+            // $('#mngrModal').modal('show');
           });
           return row;
         },
@@ -71,24 +55,32 @@ export class EmpEditRequestComponent implements OnInit{
             data: 'sr_id',
           },
           {
-            title: 'STATUS',
-            data: 'status',
+            title: 'L1 ATTENDEE',
+            data: 'l1_attendee',
           },
-          
-          
+        
+          {
+            title: 'L2 ATTENDEE',
+            data: 'l2_attendee',
+          },
           {
             title: 'CATEGORY',
             data: 'category',
           },
-         
           {
-            title: 'ISSUE WITH',
-            data: 'issue_with',
+            title: 'PRIORITY',
+            data: 'priority',
           },
+          {
+            title: 'STATUS',
+            data: 'status',
+          },
+          
         ],
       };
   }
   CopyData(data: Object | any[]) {
+    //throw new Error('Method not implemented.');
   }
   }
 
