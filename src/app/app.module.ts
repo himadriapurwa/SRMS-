@@ -24,6 +24,7 @@ import { EmpFeedbackComponent } from './emp-feedback/emp-feedback.component';
 import { EmpRaiseReqComponent } from './emp-raise-req/emp-raise-req.component';
 import { ModalComponent } from './modal/modal.component';
 import { AttendeePendingReqComponent } from './attendee-pending-req/attendee-pending-req.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AttendeePendingReqComponent } from './attendee-pending-req/attendee-pen
     EmpFeedbackComponent,
     EmpRaiseReqComponent,
     ModalComponent,
-    AttendeePendingReqComponent
+    AttendeePendingReqComponent,
+    LandingPageComponent
    
   ],
   imports: [

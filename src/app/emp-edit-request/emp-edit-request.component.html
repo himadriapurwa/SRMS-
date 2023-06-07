@@ -1,37 +1,20 @@
 <app-navbar></app-navbar>
-<!-- <!DOCTYPE html>
 
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    
-    <link rel="stylesheet" href="emp-edit-request.component.css">
-    
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
-<body>
-    <div> -->
-      
       <div>
         <h1 style="text-align: center; color: rgb(232, 239, 246);font-weight: bold;  font-size: 200%;padding-top: 3%; padding-bottom: 2%;;padding-top: 3%; padding-bottom: 2%;">REQUEST LIST</h1>
       </div>
       <div class="container table-responsive " style="  background: linear-gradient(135deg, #98c4e1, #c7a8d4); padding:2% 3% 2% 3%;border-radius: 25px;">
-       
         <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped ">
-      
           <thead class="table-dark ">
              <tr>
                <th scope="col">REQUEST ID</th>
                <th scope="col">STATUS</th>
-              
                <th scope="col">CATEGORY</th>
-               
                <th scope="col">ISSUE WITH</th>
              </tr>
            </thead>
            <tbody>
              <tr>
-               
                <tr *ngFor="let i of data.table" style="color:white">
                <td >{{ i.sr_id }}</td>
                <td >{{ i.status }}</td>
@@ -43,57 +26,23 @@
     </table>
   </div>
 
-
-
-  <!-- <div class="container">
-    <div class="title">Raise Request</div>
-    <div class="content">
-      <form action="#">
-        <div class="user-details">
-         
-          <div class="input-box">
-            <span class="details">Category</span>
-            <input type="text" placeholder="Category" id="category" name="category" [(ngModel)]="data.category" required>
-          </div>
-          
-          <div class="input-box">
-            <span class="details">Issue_with</span>
-            <input type="text" placeholder="issue_with" id="issue_with" name="issue_with" [(ngModel)]="data.issue_with" required>
-          </div>
-        </div>
-       
-        <div class="button">
-          <input type="submit" value="Submit" (click)="submit()">
-        </div> 
-      </form>
-    </div>
-  </div>  
-</div>  
-</body>
-</html> -->
-
-<!-- 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button> -->
-
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">EDIT REQUEST</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">{{sr_id}}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="container">
-          
+
           <div class="content">
             <form action="#">
               <div class="user-details">
-               
+
                 <div class="input-box">
                   <span class="details">Category</span>
-                  <input type="text" placeholder="Category" id="category" name="category" [(ngModel)]="data.category" required>
+                  <input type="text" placeholder={{category}} id="category" name="category" [(ngModel)]="data.category" required>
                 </div>
                 
                 <div class="input-box">
@@ -101,7 +50,6 @@
                   <input type="text" placeholder="issue_with" id="issue_with" name="issue_with" [(ngModel)]="data.issue_with" required>
                 </div>
               </div>
-             
               <div class="button">
                 <input type="submit" value="Submit" (click)="submit()">
               </div> 

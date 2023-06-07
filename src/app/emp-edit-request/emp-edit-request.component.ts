@@ -12,6 +12,9 @@ declare var $:any;
 
 export class EmpEditRequestComponent implements OnInit{
   dtOptions: DataTables.Settings = {};
+  issue_with = '';
+  category = '';
+  sr_id='';
   data: any={
     table:[],
   };
@@ -24,6 +27,13 @@ export class EmpEditRequestComponent implements OnInit{
     submit() {
       console.log('data', this.editData);
    }
+   
+   someClickHandler(info: any): void {
+    this.issue_with = info.issue_with;
+    this.category = info.category;
+    this.sr_id = info.sr_id;
+  }
+
     ngOnInit(): void {
       let that = this;
       this.dtOptions = {
@@ -55,16 +65,17 @@ export class EmpEditRequestComponent implements OnInit{
         rowCallback: (row: Node, data: any[] | Object, index: number) => {
           const self = this;
           $('td', row).off('click');
-          $('td', row).on('click', function(e:any){
+          $('td', row).on('click', function(){
             self.CopyData(data);
+            self.someClickHandler(data);
             console.log(data)
             $('#exampleModal').modal('show');
-            var id = $(e.relatedTarget).data('book-id');
-            $(e.currentTarget).find('input[name="sr_id"]').val(data);
-            console.log('idSeclected: ',id)
-          });
+            console.log(index,'index');
+          }
+          );
           return row;
         },
+        
         columns: [
           {
             title: 'REQUEST ID',

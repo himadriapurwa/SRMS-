@@ -13,6 +13,7 @@ import { CategoryDetailsComponent } from './category-details/category-details.co
 import { EmpHistoryComponent } from './emp-history/emp-history.component';
 import { EmpRaiseReqComponent } from './emp-raise-req/emp-raise-req.component';
 import { AttendeeRatingsComponent } from './attendee-ratings/attendee-ratings.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 const routes: Routes = [
   {
   path: '',
@@ -48,6 +49,9 @@ const routes: Routes = [
 },
 {
   path:'attendee-ratings', component:AttendeeRatingsComponent
+},
+{
+  path:'landing-page', component:LandingPageComponent
 },
 {
   path: '',
