@@ -14,6 +14,7 @@ import { EmpHistoryComponent } from './emp-history/emp-history.component';
 import { EmpRaiseReqComponent } from './emp-raise-req/emp-raise-req.component';
 import { AttendeeRatingsComponent } from './attendee-ratings/attendee-ratings.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { AttendeePendingReqComponent } from './attendee-pending-req/attendee-pending-req.component';
 const routes: Routes = [
   {
   path: '',
@@ -25,6 +26,10 @@ const routes: Routes = [
 },
 {
   path:'login', component:LoginComponent
+},
+
+{
+  path:'attendee-pending-req', component:AttendeePendingReqComponent
 },
 {
   path:'l1-attendee', component:L1AttendeeComponent

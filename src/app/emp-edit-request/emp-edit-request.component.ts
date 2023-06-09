@@ -18,6 +18,8 @@ export class EmpEditRequestComponent implements OnInit{
   data: any={
     table:[],
   };
+  category_data: any=[];
+  l2_attendee_data:any=[];
   editData: any = {
     category: '',
     issue_with: '',
@@ -26,6 +28,8 @@ export class EmpEditRequestComponent implements OnInit{
     constructor(private hs: HeroService){ }
     submit() {
       console.log('data', this.editData);
+
+      
    }
    
    someClickHandler(info: any): void {
@@ -98,6 +102,18 @@ export class EmpEditRequestComponent implements OnInit{
           },
         ],
       };
+
+
+      // dropdown for category
+      this.hs
+      .ajax(
+        'GetAllCategoryDetails',
+        'http://schemas.cordys.com/himadri_srmWSP',
+        {
+        }
+      )
+      .then((resp: any) => {
+         this.category_data = this.hs.xmltojson(resp, 'himadri_category');});
   }
   CopyData(data: Object | any[]) {
   }

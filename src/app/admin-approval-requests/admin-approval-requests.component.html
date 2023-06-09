@@ -3,8 +3,10 @@
   <h1 style="text-align: center; color: rgb(232, 239, 246);font-weight: bold;  font-size: 200%;padding-top: 3%; padding-bottom: 2%;;">LIST OF REQUESTS FOR APPROVAL</h1>
 </div>
 <div class="container table-responsive " style="  background: linear-gradient(135deg, #98c4e1, #c7a8d4); padding:2% 3% 2% 3%;border-radius: 25px">
+ <!-- TABLE -->
+
  
-  <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped ">
+  <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped " id="approval_table">
       <thead class="table-dark ">
              <tr>
                <th scope="col">REQUEST ID</th>
@@ -24,6 +26,13 @@
            </tbody>
          </table>
         </div>
+
+
+
+
+<!-- MODAL -->
+
+
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
             <div class="modal-content">
@@ -36,6 +45,7 @@
                   <div class="content">
                     <form action="#">
                       <div class="user-details">
+
                         <div>REQUEST ID : {{sr_id}}</div>
                        <div>REQUESTER NAME : {{requester_name}}</div>
                        <div>MOBILE NUMBER : {{number}}</div>
@@ -44,7 +54,7 @@
                        <div>ISSUE WITH : {{issue_with}}</div>
 
                         <label for="select">category</label>
-                        <select class="selectpicker" data-style="btn-inverse" [(ngModel)]="dataModal.category" name="category" onchange="category_change()">
+                        <select class="selectpicker" data-style="btn-inverse" [(ngModel)]="dataModal.category" name="category" (ngModelChange)="category_change($event)">
                           <option selected>SELECT</option>
                           <option *ngFor="let i of category_data">{{i.category_name}}</option>
                           <div *ngFor="let i of data.category"></div>
@@ -56,21 +66,21 @@
                           <option *ngFor="let i of priority_data">{{i.priority_type}}</option>
                           <div *ngFor="let i of data.category"></div>
                           </select>
-                        
                    
                         <label for="select">l1_attendee</label>
-                        <select class="selectpicker" data-style="btn-inverse" [(ngModel)]="dataModal.l1_attendee" name="l1_attendee">
+                        <select class="selectpicker" data-style="btn-inverse" [(ngModel)]="dataModal.l1_attendee" name="l1_attendee" (ngModelChange)="l1_attendee_change($event)">
                           <option selected>SELECT</option>
-                          <option *ngFor="let i of priority_data">{{i.priority_type}}</option>
-                          <div *ngFor="let i of data.category"></div>
+                          <option *ngFor="let i of l1_attendee_data">{{i.attendee}}</option>
+                          <div *ngFor="let i of l1_attendee_data"></div>
                           </select>
                         
 
                         <label for="select">L2 ATTENDEE</label>
                         <select class="selectpicker" data-style="btn-inverse" [(ngModel)]="dataModal.l2_attendee" name="l2_attendee">
                           <option selected>SELECT</option>
-                          <option *ngFor="let i of priority_data">{{i.priority_type}}</option>
-                          <div *ngFor="let i of data.category"></div>
+                         
+                          <option *ngFor="let i of l2">{{i.attendee}}</option>
+                          <div *ngFor="let i of l2"></div>
                           </select>
                       </div>
                     </form>
