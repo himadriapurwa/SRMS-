@@ -33,7 +33,16 @@
           <div class="input-box">
             <span class="details">Category</span>
             <input type="text" placeholder="Category" id="category" name="category" [(ngModel)]="data.category" required>
+           
           </div>
+          <!-- <div class = 'output_container'>
+            <label for="select" >CATEGORY</label>
+            <select class="selectpicker" id="output_box" data-style="btn-inverse" [(ngModel)]="category_data" name="category">
+              <option selected>SELECT</option>
+              <option *ngFor="let i of category_data">{{i.category_name}}</option>
+              <div *ngFor="let i of data.category"></div>
+              </select>
+          </div> -->
           
           <div class="input-box">
             <span class="details">Issue_with</span>
@@ -42,7 +51,7 @@
         </div>
        
         <div class="button">
-          <input type="submit" value="Submit" (click)="submit()">
+          <input type="submit"value="Submit" (click)="submit()">
         </div> 
       </form>
     </div>

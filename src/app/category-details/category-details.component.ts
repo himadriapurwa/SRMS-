@@ -10,6 +10,7 @@ export class CategoryDetailsComponent implements OnInit{
   data: any={
     table:[],
   }
+ 
     constructor(private hs: HeroService){ }
     ngOnInit(): void {
       let that = this;
@@ -22,12 +23,13 @@ export class CategoryDetailsComponent implements OnInit{
         ajax: (dataTablesParameters: any, callback) => {
           that.hs
             .ajax(
-              'GetAllApprovalRequestDetailsSearch',
+              'GetCategoryAttendeeDetails',
               'http://schemas.cordys.com/himadri_srmWSP',
-              {category:'',status:''})
+              {})
         
             .then((resp:any) => {
-              that.data = that.hs.xmltojson(resp, 'himadri_request_approval');
+              that.data = that.hs.xmltojson(resp, 'himadri_attendee_master');
+
               that.data = Array.isArray(that.data)
             ? that.data
             : [that.data];
@@ -52,11 +54,11 @@ export class CategoryDetailsComponent implements OnInit{
         columns: [
           {
             title: 'CATEGORY',
-            data: 'category',
+            data: 'himadri_category.category_name',
           },
           {
             title: 'ATTENDEE',
-            data: 'attendee',
+            data: 'himadri_attendee.attendee',
           },
           {
             title: 'ATTENDEE TYPE',

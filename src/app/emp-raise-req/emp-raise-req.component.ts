@@ -16,6 +16,7 @@ export class EmpRaiseReqComponent implements OnInit {
     issue_with: '',
     sr_id: '',
   };
+  category_data: any;
 
   constructor(private hs: HeroService) {}
   ngOnInit(): void {
@@ -29,6 +30,8 @@ export class EmpRaiseReqComponent implements OnInit {
         let srid = 'SR_' + year + '_' + req_id;
         this.sr_id = srid;
       });
+      this.hs.ajax('GetAllCategoryDetails','http://schemas.cordys.com/himadri_srmWSP',{ })
+      .then((resp: any) => {this.category_data = this.hs.xmltojson(resp, 'himadri_category');});
   }
 
   submit() {

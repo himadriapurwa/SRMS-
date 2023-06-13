@@ -40,7 +40,7 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header" style="padding-bottom: 0px;">
         <h1 class="modal-title fs-5" id="exampleModalLabel">{{sr_id}}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -49,42 +49,69 @@
           <div class="content">
             <form action="#">
               <div class="user-details">
-                <div>
-                  <output id="power" for="base exponent">REQUEST ID : {{sr_id}}</output>
+                <div class = 'output_container'>
+                  <label for="base exponent"> REQUEST ID</label>
+                  <output id="output_box" for="base exponent" >
+                    {{sr_id}}
+                  </output>
                 </div>
+                <div class = 'output_container'>
+                  <label for="base exponent"> ISSUE WITH</label>
 
-
-                <div>REQUEST ID : {{sr_id}}</div>
-               <div>ISSUE WITH : {{issue_with}}</div>
-               <div>CATEGORY : {{category}}</div>
-               <div>PRIORITY : {{priority}}</div>
-               <div>L2 ATTENDEE : {{l2_attendee}}</div>
-               <div>STATUS : {{status}}</div>
+                  <output id="output_box" for="base exponent">
+                    {{issue_with}}
+                  </output>
+                </div>
+                <div class = 'output_container'>
+                  <label for="base exponent"> CATEGORY</label>
+                   <output id="output_box" for="base exponent">
+                    {{category}}
+                  </output>
+                </div >
+                <div class = 'output_container'>
+                  <label for="base exponent"> PRIORITY</label><output id="output_box" for="base exponent">
+                  {{priority}}
+                  </output>
+                </div>
+                <div class = 'output_container'>
+                  <label for="base exponent"> L2 ATTENDEE</label><output id="output_box" for="base exponent">
+                    {{l2_attendee}}
+                  </output>
+                </div>
+                <div class = 'output_container'>
+                  <label for="base exponent"> STATUS</label><output id="output_box" for="base exponent">
+                    {{status}}
+                  </output>
+                </div>
+              
+              
 
             
               </div>
-              <div class="form-group">
+              <div class="form-group" style="width:90%; margin-left: 2%;">
                 <label for="exampleFormControlTextarea1">REMARKS FROM L1 ATTENDEE</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="l1_attendee_remarks"></textarea>
               </div>
-              <div class="form-group">
+              <div class="form-group" style="width:90%; margin-left: 2%;">
                 <label for="exampleFormControlTextarea1">REMARKS FROM L2 ATTENDEE</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"  name="l2_attendee_remarks"></textarea>
               </div>
-              <div class="form-group">
+              <div class="form-group" style="width:90%; margin-left: 2%;">
                 <label for="exampleFormControlTextarea1">REMARKS</label>
 
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"[(ngModel)]="dataModal.remarks" name="remarks"></textarea>
               </div>
-              <button type="button" class="btn btn-secondary " style="margin: 2%;" (click)="pending()">PENDING</button>
-              <button type="button" class="btn btn-secondary" style="margin: 2%;" (click)="resolve_request()">RESOLVE REQUEST</button>
-              <button type="button" class="btn btn-secondary" style="margin: 2%;" (click)="tranfer_request()">TRANSFER</button>
-              <button type="button" class="btn btn-secondary" style="margin: 2%;" (click)=" cancel_request()">CANCEL</button>
+              <button type="button" class="btn btn-info" style="margin: 4%;" (click)="pending()">PENDING</button>
+              
+
+              <button type="button" class="btn btn-success" style="margin: 4%;" (click)="resolve_request()">RESOLVE REQUEST</button>
+              <button type="button" class="btn btn-warning" style="margin: 4%;" (click)="tranfer_request()">TRANSFER</button>
+              <button type="button" class="btn btn-danger" style="margin: 4%;" (click)=" cancel_request()">CANCEL</button>
             </form>
           </div>
         </div>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" style="padding:0%">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
         <button type="submit" class="btn btn-primary" value="Submit" (click)="submit()">SAVE CHANGES</button>

@@ -27,6 +27,7 @@ export class AdminApprovalRequestsComponent implements OnInit{
     category: '',
     l1_attendee:'',
     l2_attendee:'',
+    issue_with:'',
   };
 
   sr_id: any;
@@ -46,8 +47,6 @@ export class AdminApprovalRequestsComponent implements OnInit{
     submit() {
       console.log('submit data', this.dataModal);
 // get REQUEST ID (PRIMARY KEY ) FOR UPDATION
-
-
 
       this.hs
       .ajax(
@@ -123,6 +122,7 @@ export class AdminApprovalRequestsComponent implements OnInit{
     this.req_id_approval=info.request_id
     this.req_id=info.himadri_request.request_id
     console.log("inofo",  this.req_id)
+    console.log("inofo",  this.issue_with)
     console.log("inofo1",  this.req_id_approval)
 
     console.log("inofo2", info)
@@ -186,22 +186,17 @@ export class AdminApprovalRequestsComponent implements OnInit{
             title: 'DESCRIPTION',
             data: 'resolution_description',
           },
+
+          // {
+          //   title: 'ISSUE WITH',
+          //   data: 'this.issue_with',
+          // },
         ],
       };
 
 // DROPDOWN FOR CATEGORY
-this.hs
-      .ajax(
-        'GetAllCategoryDetails',
-        'http://schemas.cordys.com/himadri_srmWSP',
-        {
-        }
-      )
-      .then((resp: any) => {
-         this.category_data = this.hs.xmltojson(resp, 'himadri_category');
-      
-        
-      });
+this.hs.ajax('GetAllCategoryDetails','http://schemas.cordys.com/himadri_srmWSP',{ })
+      .then((resp: any) => {this.category_data = this.hs.xmltojson(resp, 'himadri_category');});
 
       this.hs
       .ajax(

@@ -20,7 +20,7 @@ export class AttendeePendingReqComponent implements OnInit{
   changed_category:any;
   req_id: any;
   req_id_approval: any;
-
+  task_id: any;
   dtOptions: DataTables.Settings = {};
 
   dataModal: any = {
@@ -35,6 +35,7 @@ export class AttendeePendingReqComponent implements OnInit{
   data: any={
     table:[],
   }
+  Copy_Data: any;
   
   submit(){
     console.log("data submitted")
@@ -42,7 +43,6 @@ export class AttendeePendingReqComponent implements OnInit{
   }
 
   pending(){
-    
     console.log("pending request")
     if(this.dataModal.remarks!=""){
       this.hs
@@ -66,17 +66,28 @@ export class AttendeePendingReqComponent implements OnInit{
       )
       .then((resp: any) => {
         this.data.table = this.hs.xmltojson(resp, 'himadri_request_approval');
+
       });
+
+      this.hs
+      .ajax(
+        'PerformTaskAction',
+        'http://schemas.cordys.com/notification/workflow/1.0',
+        { TaskId: this.task_id, Action: 'COMPLETE' }
+      )
+      .then((resp) => {
+        console.log("resp : ",resp);
+        console.log('task_id', this.task_id)
+      });
+      
     }else{
       console.log("enter remarks")
     }
-    
-  
   }
 
     // setting status pending and store remarks of l1
-      
-     
+  
+
   resolve_request(){
     console.log("request resolved")
   // show groupbox
@@ -86,36 +97,25 @@ export class AttendeePendingReqComponent implements OnInit{
     // show transfergroupbox
 
   }
+
   cancel_request(){
     console.log("request cancelled")
     if(this.dataModal.remarks!=""){
-      this.hs
-      .ajax(
-        'UpdateHimadri_request_approval',
-        'http://schemas.cordys.com/himadri_srmWSP',
+      this.hs.ajax('UpdateHimadri_request_approval','http://schemas.cordys.com/himadri_srmWSP',
         {
           tuple: {
             old:{ himadri_request_approval :{
               request_id:this.req_id_approval
-            }
-            },
+        }},
             new: {
               himadri_request_approval : {
                 l1_remarks: this.dataModal.remarks,
                 status : 'Rejected',
-              },
-            },
-          },
-        }
-      )
+              },},},} )
       .then((resp: any) => {
         this.data.table = this.hs.xmltojson(resp, 'himadri_request_approval');
       });
-    }else{
-      console.log("enter remarks")
-      // toaster
-    }
-  }
+    }else{console.log("enter remarks")}}
 
     constructor(private hs: HeroService){ }
 
@@ -128,13 +128,16 @@ export class AttendeePendingReqComponent implements OnInit{
       this.l2_attendee=info.l2_attendee
       this.status=info.status
      this.req_id_approval=info.request_id
-  
-      console.log("inofo2", info)
+     this.task_id = info.task_id;
+
+      console.log("sr_id", info.sr_id)
+      console.log("task_id", info.task_id)
     }
 
     ngOnInit(): void {
 
       let that = this;
+      
       this.dtOptions = {
         pagingType: 'full_numbers',
         pageLength: 5,
@@ -167,6 +170,7 @@ export class AttendeePendingReqComponent implements OnInit{
             self.CopyData(data);
             self.someClickHandler(data);
             $('#exampleModal').modal('show');
+            
           });
           return row;
         },
@@ -204,7 +208,4 @@ export class AttendeePendingReqComponent implements OnInit{
     //throw new Error('Method not implemented.');
   }
   }
-
-
-
 
