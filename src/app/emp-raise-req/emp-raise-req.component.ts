@@ -88,12 +88,18 @@ export class EmpRaiseReqComponent implements OnInit {
         this.data.table = this.hs.xmltojson(resp, 'himadri_request_approval');
       });
 
+      this.hs
+      .ajax(
+        'empRequestRaisedBPM',
+        "http://schemas.cordys.com/default",
+        {sr_id:this.sr_id}
+      )
+      .then((resp: any) => {
+        // this.data.table = this.hs.xmltojson(resp, 'himadri_request');
+        console.log("empBpmTriggered for sr_id",this.sr_id)
+      });
     }
     else
     {
     alert("enter correct details");
-    }
-
-
-
-}}
+    }}}

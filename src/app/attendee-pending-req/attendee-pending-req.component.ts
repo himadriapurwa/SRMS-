@@ -69,17 +69,8 @@ export class AttendeePendingReqComponent implements OnInit{
 
       });
 
-      this.hs
-      .ajax(
-        'PerformTaskAction',
-        'http://schemas.cordys.com/notification/workflow/1.0',
-        { TaskId: this.task_id, Action: 'COMPLETE' }
-      )
-      .then((resp) => {
-        console.log("resp : ",resp);
-        console.log('task_id', this.task_id)
-      });
-      
+
+      // $('#attendee-table').DataTable().ajax.reload();
     }else{
       console.log("enter remarks")
     }
@@ -115,6 +106,20 @@ export class AttendeePendingReqComponent implements OnInit{
       .then((resp: any) => {
         this.data.table = this.hs.xmltojson(resp, 'himadri_request_approval');
       });
+      
+      
+      this.hs
+      .ajax(
+        'PerformTaskAction',
+        'http://schemas.cordys.com/notification/workflow/1.0',
+        { TaskId: '768CC214-295A-A1EE-8273-D3B13F3BB843', Action: 'COMPLETE' }
+      )
+      .then((resp) => {
+        console.log("resp : ",resp);
+        console.log('task_id', this.task_id)
+      });
+
+      
     }else{console.log("enter remarks")}}
 
     constructor(private hs: HeroService){ }
@@ -199,8 +204,7 @@ export class AttendeePendingReqComponent implements OnInit{
           {
             title: 'STATUS',
             data: 'status',
-          },
-          
+          }
         ],
       };
   }

@@ -124,7 +124,6 @@ export class AdminApprovalRequestsComponent implements OnInit{
     console.log("inofo",  this.req_id)
     console.log("inofo",  this.issue_with)
     console.log("inofo1",  this.req_id_approval)
-
     console.log("inofo2", info)
   }
 
@@ -162,7 +161,6 @@ export class AdminApprovalRequestsComponent implements OnInit{
             self.CopyData(data);
             self.someClickHandler(data);
             $('#exampleModal').modal('show');
-          
           });
           return row;
         },
@@ -185,12 +183,7 @@ export class AdminApprovalRequestsComponent implements OnInit{
           {
             title: 'DESCRIPTION',
             data: 'resolution_description',
-          },
-
-          // {
-          //   title: 'ISSUE WITH',
-          //   data: 'this.issue_with',
-          // },
+          }
         ],
       };
 

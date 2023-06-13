@@ -3,6 +3,7 @@
       <div>
         <h1 style="text-align: center; color: rgb(232, 239, 246);font-weight: bold;  font-size: 200%;padding-top: 3%; padding-bottom: 2%;;padding-top: 3%; padding-bottom: 2%;">REQUEST LIST</h1>
       </div>
+      <!-- <i class="fas fa-edit"></i> -->
       <div class="container table-responsive " style="  background: linear-gradient(135deg, #98c4e1, #c7a8d4); padding:2% 3% 2% 3%;border-radius: 25px;">
         <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped ">
           <thead class="table-dark ">
@@ -11,6 +12,7 @@
                <th scope="col">STATUS</th>
                <th scope="col">CATEGORY</th>
                <th scope="col">ISSUE WITH</th>
+               
              </tr>
            </thead>
            <tbody>
@@ -20,7 +22,7 @@
                <td >{{ i.status }}</td>
                <td >{{ i.category }}</td>
                <td >{{ i.issue_with }}</td>
-
+            
              </tr>
            </tbody>
     </table>
