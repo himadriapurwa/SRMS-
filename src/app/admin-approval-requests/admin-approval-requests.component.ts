@@ -74,6 +74,20 @@ export class AdminApprovalRequestsComponent implements OnInit{
         this.data.table = this.hs.xmltojson(resp, 'himadri_request_approval');
       });
       
+
+// BPM 
+this.hs
+      .ajax(
+        'angular_Bpm',
+        "http://schemas.cordys.com/default",
+        {
+          sr_id:this.sr_id
+        }
+      )
+      .then((resp: any) => {
+       console.log("bpm triggered")
+      });
+
       $('#approval_table').DataTable().ajax.reload();
 
    }
@@ -166,24 +180,31 @@ export class AdminApprovalRequestsComponent implements OnInit{
         },
         columns: [
           {
-            title: 'REQUEST ID',
+            title: 'Request Id',
             data: 'sr_id',
           },
           {
-            title: 'STATUS',
+            title: 'Status',
             data: 'status',
           },
           
           
           {
-            title: 'CATEGORY',
+            title: 'Category',
             data: 'category',
           },
          
           {
-            title: 'DESCRIPTION',
+            title: 'Description',
             data: 'resolution_description',
-          }
+          },
+          {
+            title: 'Action',
+          render:function() {
+            return `<button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-edit icon"></i></button>`;
+           
+
+          }}
         ],
       };
 

@@ -52,28 +52,28 @@ export class EmpHistoryComponent implements OnInit{
         },
         columns: [
           {
-            title: 'REQUEST ID',
+            title: 'Request Id',
             data: 'sr_id',
           },
           {
-            title: 'ISSUE',
+            title: 'Issue With',
             data: 'issue_with',
           },
         
           {
-            title: 'CATEGORY',
+            title: 'Category',
             data: 'category',
           },
           {
-            title: 'PRIORITY',
+            title: 'Priority',
             data: 'priority',
           },
           {
-            title: 'STATUS',
+            title: 'Status',
             data: 'status',
           },
           {
-            title: 'RESOLUTION',
+            title: 'Resolution',
             data: 'resolution_description',
           },
         ],

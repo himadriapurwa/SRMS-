@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-
+  constructor(){}
+   active_class():any {
+    $('li').on('click', function(){
+      $('li').removeClass('active');
+      $(this).toggleClass('active');
+    })
+  }
 }
+
+
+// $('li').on('click', function(){
+//   $('li').removeClass('active');
+//   $(this).toggleClass('active');
+// })

@@ -1,25 +1,25 @@
 <app-navbar></app-navbar>
 <div>
-  <h1 style="text-align: center; color: rgb(232, 239, 246);font-weight: bold;  font-size: 200%;padding-top: 3%; padding-bottom: 2%;;">LIST OF REQUESTS FOR APPROVAL</h1>
+  <h1 style="text-align: center; color: #000;;font-weight: bold;  font-size: 200%;padding-top: 1.5%; padding-bottom: 0.5%;">List Of Request For Approval</h1>
 </div>
-<div class="container table-responsive" style="background: linear-gradient(135deg, #98c4e1, #c7a8d4); padding:2% 3% 2% 3%;border-radius: 25px">
+<div class="container-fluid table-responsive" style="background: linear-gradient(135deg, #98c4e1, #c7a8d4);border-radius: 15px">
   <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped " id="approval_table">
       <thead class="table-dark ">
-             <tr>
+             <!-- <tr>
                <th scope="col">REQUEST ID</th>
                <th scope="col">STATUS</th>
                <th scope="col">CATEGORY</th>
                <th scope="col">ISSUE WITH</th>
-             </tr>
+             </tr> -->
            </thead>
            <tbody>
-             <tr>
+             <!-- <tr>
                <tr *ngFor="let i of data.table" style="color:white">
                <td >{{ i.sr_id }}</td>
                <td >{{ i.status }}</td>
                <td >{{ i.category }}</td>
                <td >{{ i.issue_with }}</td>
-             </tr>
+             </tr> -->
            </tbody>
          </table>
         </div>
@@ -30,8 +30,8 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
             <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">{{sr_id}}</h1>
+              <div class="modal-header " >
+                <h1 class="modal-title fs-5" id="exampleModalLabel" style="color:#000;">{{sr_id}}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
@@ -40,7 +40,7 @@
                     <form action="#">
                       <div class="user-details">
                         <div class = 'output_container'>
-                          <label for="base exponent">REQUEST ID</label>
+                          <label for="base exponent">Request Id</label>
                           <output id="output_box" for="base exponent">
                             {{sr_id}}
                           </output>

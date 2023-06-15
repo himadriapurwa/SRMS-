@@ -5,6 +5,7 @@ import { HeroService } from '../hero.service';
   templateUrl: './attendee-ratings.component.html',
   styleUrls: ['./attendee-ratings.component.css']
 })
+
 export class AttendeeRatingsComponent implements OnInit{
   dtOptions: DataTables.Settings = {};
   data: any={
@@ -51,16 +52,16 @@ export class AttendeeRatingsComponent implements OnInit{
         },
         columns: [
           {
-            title: 'ATTENDEE',
+            title: 'Attendee',
             data: 'attendee',
           },
           {
-            title: 'ATTENDEE EMAIL',
+            title: 'Attendee Email',
             data: 'attendee_email',
           },
         
           {
-            title: 'AVERAGE RATING',
+            title: 'Average Rating',
             data: 'avg_rating',
           }
         ],

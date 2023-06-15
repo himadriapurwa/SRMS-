@@ -53,15 +53,15 @@ export class CategoryDetailsComponent implements OnInit{
         },
         columns: [
           {
-            title: 'CATEGORY',
+            title: 'Category',
             data: 'himadri_category.category_name',
           },
           {
-            title: 'ATTENDEE',
+            title: 'Attendee',
             data: 'himadri_attendee.attendee',
           },
           {
-            title: 'ATTENDEE TYPE',
+            title: 'Attendee Type',
             data: 'attendee_type',
           }
         ],

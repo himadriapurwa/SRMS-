@@ -3,3 +3,7 @@
     overflow-x: auto !important;
     width: 100% !important;
   } */
+
+  .modal-header{
+    background-color:rgb(205, 188, 223)
+   }

@@ -52,31 +52,31 @@ export class AdminHistoryComponent implements OnInit{
         },
         columns: [
           {
-            title: 'REQUEST ID',
+            title: 'Request Id',
             data: 'sr_id',
           },
           {
-            title: 'STATUS',
+            title: 'Status',
             data: 'status',
           },
           {
-            title: 'L1 ATTENDEE',
+            title: 'L1 Attendee',
             data: 'l1_attendee',
           },
           {
-            title: 'L2 ATTENDEE',
+            title: 'L2 Attendee',
             data: 'l2_attendee',
           },
           {
-            title: 'CATEGORY',
+            title: 'Category',
             data: 'category',
           },
           {
-            title: 'PRIORITY',
+            title: 'Priority',
             data: 'priority',
           },
           {
-            title: 'RESOLUTION',
+            title: 'Resolution',
             data: 'resolution_description',
           },
         ],

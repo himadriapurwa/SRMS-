@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit{
       .done((resp: any) => {
         console.log('Done');
       }); 
-      console.log("logged in successfully")
+      console.log("logged in successfully with user :",this.data.username)
   }
   ngOnInit(): void {}
 }

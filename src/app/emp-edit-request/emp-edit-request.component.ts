@@ -82,24 +82,27 @@ export class EmpEditRequestComponent implements OnInit{
         
         columns: [
           {
-            title: 'REQUEST ID',
+            title: 'Request Id',
             data: 'sr_id',
           },
           {
-            title: 'STATUS',
+            title: 'Status',
             data: 'status',
           },
-          
-          
           {
-            title: 'CATEGORY',
+            title: 'Category',
             data: 'category',
           },
          
           {
-            title: 'ISSUE WITH',
+            title: 'Issue With',
             data: 'issue_with',
           },
+          {
+            title: 'Action',
+          render:function() {
+            return `<button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-edit icon"></i></button>`;
+          }}
         ],
       };
 

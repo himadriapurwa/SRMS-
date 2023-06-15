@@ -98,6 +98,7 @@ export class EmpRaiseReqComponent implements OnInit {
         // this.data.table = this.hs.xmltojson(resp, 'himadri_request');
         console.log("empBpmTriggered for sr_id",this.sr_id)
       });
+    
     }
     else
     {
