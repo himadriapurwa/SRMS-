@@ -10,7 +10,7 @@
           <li class="nav-item">
             <a class="nav-link " aria-current="page" href="/login" >Login</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item active" (click)="active_class()">
             <a class="nav-link " aria-current="page" href="/emp-raise-req">Raise Requests</a>
           </li>
           <li class="nav-item" (click)="active_class()">
@@ -32,15 +32,10 @@
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/attendee-ratings">Attendee Ratings</a></li>
               <li><a class="dropdown-item" href="/admin-history">History</a></li>
+              <li><a class="dropdown-item" href="/bar-chart">Graphical View</a></li>
+
             </ul>
           </li>
-          <!-- <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li class="active"><a href="#">profile</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-         </div> -->
         </ul>
       </div>
     </div>

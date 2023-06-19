@@ -15,6 +15,7 @@ import { EmpRaiseReqComponent } from './emp-raise-req/emp-raise-req.component';
 import { AttendeeRatingsComponent } from './attendee-ratings/attendee-ratings.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AttendeePendingReqComponent } from './attendee-pending-req/attendee-pending-req.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 const routes: Routes = [
   {
   path: '',
@@ -42,6 +43,9 @@ const routes: Routes = [
 },
 {
   path:'admin-approval-requests', component:AdminApprovalRequestsComponent
+},
+{
+  path:'bar-chart', component:BarChartComponent
 },
 {
   path:'category-details', component:CategoryDetailsComponent

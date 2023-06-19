@@ -88,42 +88,86 @@
                     {{status}}
                   </output>
                 </div>
-
-
-
-
               </div>
-              <!-- <div class="form-group" style="width:90%; margin-left: 2%;">
-                <label for="exampleFormControlTextarea1">REMARKS FROM L1 ATTENDEE</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="l1_attendee_remarks"></textarea>
-              </div>
-              <div class="form-group" style="width:90%; margin-left: 2%;">
-                <label for="exampleFormControlTextarea1">REMARKS FROM L2 ATTENDEE</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"  name="l2_attendee_remarks"></textarea>
-              </div> -->
               <div class="form-group" style="width:90%; margin-left: 2%;">
                 <label for="exampleFormControlTextarea1">REMARKS</label>
 
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" [(ngModel)]="dataModal.remarks"
                   name="remarks"></textarea>
               </div>
-              <button type="button" class="btn btn-info" style="margin: 4%;" (click)="pending()">PENDING</button>
+              <button type="button" class="btn btn-info" style="margin: 4%;" id="pendingbtn" (click)="pending()">PENDING</button>
 
 
-              <button type="button" class="btn btn-success" style="margin: 4%;" (click)="resolve_request()">RESOLVE
+              <button type="button" class="btn btn-success" id='resolveBtn' style="margin: 4%;" (click)="resolve_request()">RESOLVE
                 REQUEST</button>
-              <button type="button" class="btn btn-warning" style="margin: 4%;"
+              <button type="button" id="transferbtn" class="btn btn-warning" style="margin: 4%;"
                 (click)="tranfer_request()">TRANSFER</button>
-              <button type="button" class="btn btn-danger" style="margin: 4%;"
+              <button type="button" id="cancelbtn" class="btn btn-danger" style="margin: 4%;"
                 (click)=" cancel_request()">CANCEL</button>
             </form>
+            
+            <form action="#" id="resolutionForm" *ngIf="visible" >
+            
+              <div id="reso" class = 'output_container'>
+                <label for="select" >Request Resolution</label>
+                <select class="selectpicker" id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.issue_resolution" name="category" >
+                  <option selected>SELECT</option>
+                  <option value="WorkAround Provided">WorkAround Provided</option>
+                  <option value="Out Of Scope">Out Of Scope</option>
+                  <option value="Requirement Completed">Requirement Completed</option>
+                  </select>
+              </div>
+            <div class="form-group" style="width:90%; margin-left: 2%;">
+              <label for="exampleFormControlTextarea1">Provide Details For The Resolution</label>
+
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" [(ngModel)]="dataModal.resolution_description"
+                name="remarks"></textarea>
+            </div>
+          </form>
+
+<!-- TRANSFER REQUEST -->
+<!-- category, l1_attendee, l2_attendee -->
+          <form action="#" id="transferform" *ngIf="visibleTranferForm">
+            <div class="user-details">
+
+              <div class = 'output_container'>
+                <label for="select" >CATEGORY</label>
+                <select class="selectpicker" id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.category" name="category" (ngModelChange)="category_change($event)">
+                  <option selected>SELECT</option>
+                  <option *ngFor="let i of category_data">{{i.category_name}}</option>
+                  <div *ngFor="let i of data.category"></div>
+                  </select>
+              </div>                 
+              <div class = 'output_container'>
+                <label for="select">L1 ATTENDEE</label>
+                <select class="selectpicker"  id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.l1_attendee" name="l1_attendee" (ngModelChange)="l1_attendee_change($event)">
+                  <option selected>SELECT</option>
+                  <option *ngFor="let i of l1_attendee_data">{{i.attendee}}</option>
+                  <div *ngFor="let i of l1_attendee_data"></div>
+                  </select>
+              </div>
+               
+                
+<div class = 'output_container'>
+<label for="select">L2 ATTENDEE</label>
+<select class="selectpicker"  id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.l2_attendee" name="l2_attendee">
+<option selected>SELECT</option>
+<option *ngFor="let i of l2">{{i.attendee}}</option>
+<div *ngFor="let i of l2"></div>
+</select>
+            </div>
+            </div>
+          </form>
+           
+      
+
           </div>
         </div>
       </div>
       <div class="modal-footer" style="padding:2%">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-        <button type="submit" class="btn btn-primary" value="Submit" (click)="submit()">SAVE CHANGES</button>
+        <button type="submit" class="btn btn-primary" id="saveChanges" value="Submit" (click)="saveChanges()">SAVE CHANGES</button>
       </div>
     </div>
   </div>
@@ -132,51 +176,133 @@
 
 
 
-<!-- request resolve modal -->
+<!-- L2 request modal -->
 
-<div class="modal fade" id="resolveModal" tabindex="-1" aria-labelledby="resolveModalLabel" aria-hidden="true">
+<div class="modal fade" id="l2_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
     <div class="modal-content">
       <div class="modal-header" style="padding-bottom: 0px;">
-        <h1 class="modal-title fs-5" id="resolveModalLabel" style="color: 000;">{{sr_id}}</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: 000;">{{sr_id}}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="container">
           <div class="content">
             <form action="#">
-            
-                <div class = 'output_container'>
-                  <label for="select" >CATEGORY</label>
-                  <select class="selectpicker" id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.issue_resolution" name="category" >
-                    <option selected>SELECT</option>
-                    <option value="WorkAround Provided">WorkAround Provided</option>
-                    <option value="Out Of Scope">Out Of Scope</option>
-                    <option value="Requirement Completed">Requirement Completed</option>
-                    </select>
+              <div class="user-details">
+                <div class='output_container'>
+                  <label for="base exponent"> REQUEST ID</label>
+                  <output id="output_box" for="base exponent">
+                    {{sr_id}}
+                  </output>
                 </div>
-            
-          
-              <div class="form-group" style="width:90%; margin-left: 2%;">
-                <label for="exampleFormControlTextarea1">Provide Details For The Resolution</label>
+                <div class='output_container'>
+                  <label for="base exponent"> ISSUE WITH</label>
 
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" [(ngModel)]="dataModal.resolution_description"
+                  <output id="output_box" for="base exponent">
+                    {{issue_with}}
+                  </output>
+                </div>
+                <div class='output_container'>
+                  <label for="base exponent"> CATEGORY</label>
+                  <output id="output_box" for="base exponent">
+                    {{category}}
+                  </output>
+                </div>
+                <div class='output_container'>
+                  <label for="base exponent"> PRIORITY</label><output id="output_box" for="base exponent">
+                    {{priority}}
+                  </output>
+                </div>
+                <div class='output_container'>
+                  <label for="base exponent"> L1 ATTENDEE</label><output id="output_box" for="base exponent">
+                    {{l1_attendee}}
+                  </output>
+                </div>
+                <div class='output_container'>
+                  <label for="base exponent"> STATUS</label><output id="output_box" for="base exponent">
+                    {{status}}
+                  </output>
+                </div>
+              </div>
+              <div class="form-group" style="width:90%; margin-left: 2%;">
+                <label for="exampleFormControlTextarea1">REMARKS</label>
+
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" [(ngModel)]="dataModal.remarks"
                   name="remarks"></textarea>
               </div>
-              <!-- <button type="button" class="btn btn-info" style="margin: 4%;" (click)="submit()">Submit</button> -->
+            
+            <button type="button" class="btn btn-success" id='resolvedbtn' style="margin: 4%;"
+                   (click)="resolved_request()">RESOLVED </button>
+            <button type="button" id="resendbtn" class="btn btn-warning" style="margin: 4%;"
+                    (click)="resend()">Resend To L1</button>
+              <button type="button" id="rejectbtn" class="btn btn-danger" style="margin: 4%;"
+                (click)=" reject_request()">CANCEL</button>
             </form>
+            
+            <form action="#" id="resolutionForm" *ngIf="visible" >
+            
+              <div id="reso" class = 'output_container'>
+                <label for="select" >Request Resolution</label>
+                <select class="selectpicker" id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.issue_resolution" name="category" >
+                  <option selected>SELECT</option>
+                  <option value="WorkAround Provided">WorkAround Provided</option>
+                  <option value="Out Of Scope">Out Of Scope</option>
+                  <option value="Requirement Completed">Requirement Completed</option>
+                  </select>
+              </div>
+            <div class="form-group" style="width:90%; margin-left: 2%;">
+              <label for="exampleFormControlTextarea1">Provide Details For The Resolution</label>
+
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" [(ngModel)]="dataModal.resolution_description"
+                name="remarks"></textarea>
+            </div>
+          </form>
+
+<!-- TRANSFER REQUEST -->
+<!-- category, l1_attendee, l2_attendee -->
+          <form action="#" id="transferform" *ngIf="visibleTranferForm">
+            <div class="user-details">
+
+              <div class = 'output_container'>
+                <label for="select" >CATEGORY</label>
+                <select class="selectpicker" id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.category" name="category" (ngModelChange)="category_change($event)">
+                  <option selected>SELECT</option>
+                  <option *ngFor="let i of category_data">{{i.category_name}}</option>
+                  <div *ngFor="let i of data.category"></div>
+                  </select>
+              </div>                 
+              <div class = 'output_container'>
+                <label for="select">L1 ATTENDEE</label>
+                <select class="selectpicker"  id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.l1_attendee" name="l1_attendee" (ngModelChange)="l1_attendee_change($event)">
+                  <option selected>SELECT</option>
+                  <option *ngFor="let i of l1_attendee_data">{{i.attendee}}</option>
+                  <div *ngFor="let i of l1_attendee_data"></div>
+                  </select>
+              </div>
+               
+                
+<div class = 'output_container'>
+<label for="select">L2 ATTENDEE</label>
+<select class="selectpicker"  id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.l2_attendee" name="l2_attendee">
+<option selected>SELECT</option>
+<option *ngFor="let i of l2">{{i.attendee}}</option>
+<div *ngFor="let i of l2"></div>
+</select>
+            </div>
+            </div>
+          </form>
+           
+      
+
           </div>
         </div>
       </div>
       <div class="modal-footer" style="padding:2%">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-info" style="margin: 4%;" (click)="submitReq()">Submit</button>
-
-                <!-- <button type="submit" class="btn btn-primary" value="Submit" (click)="submit()">SAVE CHANGES</button> -->
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        <button type="submit" class="btn btn-primary" id="saveChanges" value="Submit" (click)="saveChanges()">SAVE CHANGES</button>
       </div>
     </div>
   </div>
-</div>
-<div style="margin-top: 5%;">
-  <app-footer></app-footer>
 </div>

@@ -12,7 +12,6 @@
                <th scope="col">STATUS</th>
                <th scope="col">CATEGORY</th>
                <th scope="col">ISSUE WITH</th>
-               
              </tr> -->
            </thead>
            <tbody>
@@ -32,8 +31,7 @@
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
     <div class="modal-content">
       <div class="modal-header" style="
-        background-color:rgb(205, 188, 223)
-      ">
+        background-color:rgb(205, 188, 223) ">
         <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: 000;">{{sr_id}}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -42,8 +40,7 @@
 
           <div class="content">
             <form action="#">
-              <div class="user-details" 
-              >
+              <div class="user-details">
 <div class = 'output_container'>
   <label for="select" style="margin-right: 6%; margin-bottom: 1%;">CATEGORY</label>
   <select class="selectpicker" id="output_box" data-style="btn-inverse" [(ngModel)]="editData.category" name="category">
@@ -51,8 +48,6 @@
     <option *ngFor="let i of category_data">{{i.category_name}}</option>
     <div *ngFor="let i of category_data"></div>
     </select>
-
-
 </div>
              
 

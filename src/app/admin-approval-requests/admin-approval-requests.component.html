@@ -103,7 +103,6 @@
                           <option *ngFor="let i of l1_attendee_data">{{i.attendee}}</option>
                           <div *ngFor="let i of l1_attendee_data"></div>
                           </select>
-
                       </div>
                        
                         
@@ -111,7 +110,6 @@
   <label for="select">L2 ATTENDEE</label>
   <select class="selectpicker"  id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.l2_attendee" name="l2_attendee">
     <option selected>SELECT</option>
-   
     <option *ngFor="let i of l2">{{i.attendee}}</option>
     <div *ngFor="let i of l2"></div>
     </select>

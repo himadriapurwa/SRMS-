@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../hero.service';
+import Swal from 'sweetalert2';
+// import 'sweetalert2/src/sweetalert2.scss';
 @Component({
   selector: 'app-emp-raise-req',
   templateUrl: './emp-raise-req.component.html',
@@ -17,9 +19,14 @@ export class EmpRaiseReqComponent implements OnInit {
     sr_id: '',
   };
   category_data: any;
-
+  data1: any={};
   constructor(private hs: HeroService) {}
   ngOnInit(): void {
+    this.data1=this.hs._get('loggedInuser')
+    console.log(this.data1,"aa")
+
+    this.hs._set('loggedInuser', this.data1);
+
     this.hs
       .ajax('Get_max_id', 'http://schemas.cordys.com/himadri_srmWSP', {})
 
@@ -98,7 +105,7 @@ export class EmpRaiseReqComponent implements OnInit {
         // this.data.table = this.hs.xmltojson(resp, 'himadri_request');
         console.log("empBpmTriggered for sr_id",this.sr_id)
       });
-    
+      Swal.fire('New Request has been raised')
     }
     else
     {

@@ -28,5 +28,11 @@ export class HeroService {
     });
    }
    
-   
+   passdata: any = {};
+  _get(key: any) {
+    return this.passdata[key];
+  }
+  _set(key: any, data: any) {
+    this.passdata[key] = data;
+  }
 }

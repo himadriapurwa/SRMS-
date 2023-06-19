@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../hero.service';
-
+import Swal from 'sweetalert2'; 
 declare var $:any;
 
 @Component({
@@ -45,6 +45,7 @@ export class AdminApprovalRequestsComponent implements OnInit{
 
 
     submit() {
+
       console.log('submit data', this.dataModal);
 // get REQUEST ID (PRIMARY KEY ) FOR UPDATION
 
@@ -89,7 +90,8 @@ this.hs
       });
 
       $('#approval_table').DataTable().ajax.reload();
-
+      $('#exampleModal').modal('hide');
+      Swal.fire('Request Approved')
    }
    category_change(event:any) {
   //  l1 attendee list
@@ -106,7 +108,6 @@ this.hs
   .then((resp: any) => {
      this.l1_attendee_data = this.hs.xmltojson(resp, 'himadri_attendee');
      this.l1_attendee_data = Array.isArray(this.l1_attendee_data) ? this.l1_attendee_data : [this.l1_attendee_data];
-
      console.log(this.l1_attendee_data.length)
   });
    }
@@ -211,7 +212,6 @@ this.hs
 // DROPDOWN FOR CATEGORY
 this.hs.ajax('GetAllCategoryDetails','http://schemas.cordys.com/himadri_srmWSP',{ })
       .then((resp: any) => {this.category_data = this.hs.xmltojson(resp, 'himadri_category');});
-
       this.hs
       .ajax(
         'GetAllPriorities',

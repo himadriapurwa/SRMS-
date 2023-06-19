@@ -47,7 +47,7 @@ export class CategoryDetailsComponent implements OnInit{
           $('td', row).on('click', () => {
             self.CopyData(data);
             console.log(data)
-            // $('#mngrModal').modal('show');
+            // $('#categoryModal').modal('show');
           });
           return row;
         },

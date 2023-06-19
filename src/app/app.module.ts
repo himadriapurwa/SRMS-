@@ -25,6 +25,8 @@ import { EmpRaiseReqComponent } from './emp-raise-req/emp-raise-req.component';
 import { ModalComponent } from './modal/modal.component';
 import { AttendeePendingReqComponent } from './attendee-pending-req/attendee-pending-req.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { NgChartsModule } from 'ng2-charts';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     EmpRaiseReqComponent,
     ModalComponent,
     AttendeePendingReqComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    BarChartComponent
    
   ],
   imports: [
@@ -53,7 +56,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     AppRoutingModule,
     RouterModule,
     FormsModule,
-    DataTablesModule
+    DataTablesModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
