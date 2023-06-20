@@ -55,55 +55,55 @@
             <form action="#">
               <div class="user-details">
                 <div class='output_container'>
-                  <label for="base exponent"> REQUEST ID</label>
+                  <label for="base exponent"> Request Id</label>
                   <output id="output_box" for="base exponent">
                     {{sr_id}}
                   </output>
                 </div>
                 <div class='output_container'>
-                  <label for="base exponent"> ISSUE WITH</label>
+                  <label for="base exponent"> Issue With</label>
 
                   <output id="output_box" for="base exponent">
                     {{issue_with}}
                   </output>
                 </div>
                 <div class='output_container'>
-                  <label for="base exponent"> CATEGORY</label>
+                  <label for="base exponent"> Category</label>
                   <output id="output_box" for="base exponent">
                     {{category}}
                   </output>
                 </div>
                 <div class='output_container'>
-                  <label for="base exponent"> PRIORITY</label><output id="output_box" for="base exponent">
+                  <label for="base exponent"> Priority</label><output id="output_box" for="base exponent">
                     {{priority}}
                   </output>
                 </div>
                 <div class='output_container'>
-                  <label for="base exponent"> L2 ATTENDEE</label><output id="output_box" for="base exponent">
+                  <label for="base exponent"> L2 Attendee</label><output id="output_box" for="base exponent">
                     {{l2_attendee}}
                   </output>
                 </div>
                 <div class='output_container'>
-                  <label for="base exponent"> STATUS</label><output id="output_box" for="base exponent">
+                  <label for="base exponent"> Status</label><output id="output_box" for="base exponent">
                     {{status}}
                   </output>
                 </div>
               </div>
               <div class="form-group" style="width:90%; margin-left: 2%;">
-                <label for="exampleFormControlTextarea1">REMARKS</label>
+                <label for="exampleFormControlTextarea1">Remarks</label>
 
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" [(ngModel)]="dataModal.remarks"
                   name="remarks"></textarea>
               </div>
-              <button type="button" class="btn btn-info" style="margin: 4%;" id="pendingbtn" (click)="pending()">PENDING</button>
+              <button type="button" class="btn btn-info" style="margin: 4%;" id="pendingbtn" (click)="pending()">Pending</button>
 
 
-              <button type="button" class="btn btn-success" id='resolveBtn' style="margin: 4%;" (click)="resolve_request()">RESOLVE
-                REQUEST</button>
+              <button type="button" class="btn btn-success" id='resolveBtn' style="margin: 4%;" (click)="resolve_request()">Resolve
+                Request</button>
               <button type="button" id="transferbtn" class="btn btn-warning" style="margin: 4%;"
-                (click)="tranfer_request()">TRANSFER</button>
+                (click)="tranfer_request()">Transfer</button>
               <button type="button" id="cancelbtn" class="btn btn-danger" style="margin: 4%;"
-                (click)=" cancel_request()">CANCEL</button>
+                (click)=" cancel_request()">Cancel</button>
             </form>
             
             <form action="#" id="resolutionForm" *ngIf="visible" >
@@ -131,9 +131,9 @@
             <div class="user-details">
 
               <div class = 'output_container'>
-                <label for="select" >CATEGORY</label>
+                <label for="select" >Category</label>
                 <select class="selectpicker" id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.category" name="category" (ngModelChange)="category_change($event)">
-                  <option selected>SELECT</option>
+                  <option selected>Select</option>
                   <option *ngFor="let i of category_data">{{i.category_name}}</option>
                   <div *ngFor="let i of data.category"></div>
                   </select>
@@ -149,9 +149,9 @@
                
                 
 <div class = 'output_container'>
-<label for="select">L2 ATTENDEE</label>
+<label for="select">L2 Attendee</label>
 <select class="selectpicker"  id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.l2_attendee" name="l2_attendee">
-<option selected>SELECT</option>
+<option selected>Select</option>
 <option *ngFor="let i of l2">{{i.attendee}}</option>
 <div *ngFor="let i of l2"></div>
 </select>
@@ -191,53 +191,53 @@
             <form action="#">
               <div class="user-details">
                 <div class='output_container'>
-                  <label for="base exponent"> REQUEST ID</label>
+                  <label for="base exponent"> Request Id</label>
                   <output id="output_box" for="base exponent">
                     {{sr_id}}
                   </output>
                 </div>
                 <div class='output_container'>
-                  <label for="base exponent"> ISSUE WITH</label>
+                  <label for="base exponent"> Issue With</label>
 
                   <output id="output_box" for="base exponent">
                     {{issue_with}}
                   </output>
                 </div>
                 <div class='output_container'>
-                  <label for="base exponent"> CATEGORY</label>
+                  <label for="base exponent"> Category</label>
                   <output id="output_box" for="base exponent">
                     {{category}}
                   </output>
                 </div>
                 <div class='output_container'>
-                  <label for="base exponent"> PRIORITY</label><output id="output_box" for="base exponent">
+                  <label for="base exponent"> Priority</label><output id="output_box" for="base exponent">
                     {{priority}}
                   </output>
                 </div>
                 <div class='output_container'>
-                  <label for="base exponent"> L1 ATTENDEE</label><output id="output_box" for="base exponent">
+                  <label for="base exponent"> L1 Attendee</label><output id="output_box" for="base exponent">
                     {{l1_attendee}}
                   </output>
                 </div>
                 <div class='output_container'>
-                  <label for="base exponent"> STATUS</label><output id="output_box" for="base exponent">
+                  <label for="base exponent"> Status</label><output id="output_box" for="base exponent">
                     {{status}}
                   </output>
                 </div>
               </div>
               <div class="form-group" style="width:90%; margin-left: 2%;">
-                <label for="exampleFormControlTextarea1">REMARKS</label>
+                <label for="exampleFormControlTextarea1">Remarks</label>
 
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" [(ngModel)]="dataModal.remarks"
                   name="remarks"></textarea>
               </div>
             
             <button type="button" class="btn btn-success" id='resolvedbtn' style="margin: 4%;"
-                   (click)="resolved_request()">RESOLVED </button>
+                   (click)="resolved_request()">Resolved </button>
             <button type="button" id="resendbtn" class="btn btn-warning" style="margin: 4%;"
                     (click)="resend()">Resend To L1</button>
               <button type="button" id="rejectbtn" class="btn btn-danger" style="margin: 4%;"
-                (click)=" reject_request()">CANCEL</button>
+                (click)=" reject_request()">Cancel</button>
             </form>
             
             <form action="#" id="resolutionForm" *ngIf="visible" >
@@ -265,17 +265,17 @@
             <div class="user-details">
 
               <div class = 'output_container'>
-                <label for="select" >CATEGORY</label>
+                <label for="select" >Category</label>
                 <select class="selectpicker" id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.category" name="category" (ngModelChange)="category_change($event)">
-                  <option selected>SELECT</option>
+                  <option selected>Select</option>
                   <option *ngFor="let i of category_data">{{i.category_name}}</option>
                   <div *ngFor="let i of data.category"></div>
                   </select>
               </div>                 
               <div class = 'output_container'>
-                <label for="select">L1 ATTENDEE</label>
+                <label for="select">L1 Attendee</label>
                 <select class="selectpicker"  id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.l1_attendee" name="l1_attendee" (ngModelChange)="l1_attendee_change($event)">
-                  <option selected>SELECT</option>
+                  <option selected>Select</option>
                   <option *ngFor="let i of l1_attendee_data">{{i.attendee}}</option>
                   <div *ngFor="let i of l1_attendee_data"></div>
                   </select>
@@ -283,9 +283,9 @@
                
                 
 <div class = 'output_container'>
-<label for="select">L2 ATTENDEE</label>
+<label for="select">L2 Attendee</label>
 <select class="selectpicker"  id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.l2_attendee" name="l2_attendee">
-<option selected>SELECT</option>
+<option selected>Select</option>
 <option *ngFor="let i of l2">{{i.attendee}}</option>
 <div *ngFor="let i of l2"></div>
 </select>

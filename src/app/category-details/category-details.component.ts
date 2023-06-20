@@ -11,6 +11,16 @@ export class CategoryDetailsComponent implements OnInit{
     table:[],
   }
  
+
+  addCategory(){
+    // $('#addcategoryModal').modal('show');
+  }
+  updateCategory(){
+    // $('#updatecategoryModal').modal('show');
+  }
+  deleteCategory(){
+    // $('#deletecategoryModal').modal('show');
+  }
     constructor(private hs: HeroService){ }
     ngOnInit(): void {
       let that = this;

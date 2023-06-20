@@ -147,7 +147,7 @@ flag:any="";
           }
         )
         .then((resp: any) => {
-          this.data.table = this.hs.xmltojson(resp, 'himadri_request_approval');
+          // this.data.table = this.hs.xmltojson(resp, 'himadri_request_approval');
         });
 
         this.hs
@@ -245,6 +245,7 @@ flag:any="";
           console.log('task_id', this.task_id);
         });
     } else {
+
       console.log('enter remarks');
     }
   }
@@ -451,21 +452,21 @@ flag:any="";
   ngOnInit(): void {
     // this.getUserData();
     
-    this.hs
-    .ajax(
-      'GetUserDetails',
-      'http://schemas.cordys.com/UserManagement/1.0/User',
-      {}
-    )
-    .then((resp: any) => {
-      this.userDetails = this.hs.xmltojson(resp, 'User');
-      console.log('userDetails', this.userDetails);
-      this.a = this.userDetails.UserName;
-      console.log('a', this.a);
-    });
+    // this.hs
+    // .ajax(
+    //   'GetUserDetails',
+    //   'http://schemas.cordys.com/UserManagement/1.0/User',
+    //   {}
+    // )
+    // .then((resp: any) => {
+    //   this.userDetails = this.hs.xmltojson(resp, 'User');
+    //   console.log('userDetails', this.userDetails);
+    //   // this.a = this.userDetails.UserName;
+    //   console.log('a', this.a);
+    // })
    
       this.data1=this.hs._get('loggedInuser')
-      console.log('loggedInuser',this.a)
+      // console.log('loggedInuser',this.a)
    
         let that = this;
         this.dtOptions = {
@@ -501,8 +502,15 @@ flag:any="";
             $('td', row).on('click', () => {
               self.CopyData(data);
               self.someClickHandler(data);
-              // $('#exampleModal').modal('show');
-              $('#l2_modal').modal('show');
+             
+              console.log('l1 :',this.l1_attendee)
+              console.log('l2 :',this.l2_attendee)
+              if(this.l1_attendee==this.data1){
+                $('#exampleModal').modal('show');
+                console.log("l1 attendee modal");
+              }
+              else if(this.l2_attendee==this.data1){$('#l2_modal').modal('show');
+            console.log("l2 attendee Modal")}
             });
             return row;
           },
@@ -555,12 +563,7 @@ this.hs
 )
 .then((resp: any) => {
    this.priority_data = this.hs.xmltojson(resp, 'himadri_priority_table');
-  
 });
-
-
-
-
   }
   CopyData(data: Object | any[]) {
     //throw new Error('Method not implemented.');

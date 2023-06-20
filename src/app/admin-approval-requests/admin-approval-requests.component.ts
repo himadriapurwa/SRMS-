@@ -202,7 +202,7 @@ this.hs
           {
             title: 'Action',
           render:function() {
-            return `<button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-edit icon"></i></button>`;
+            return `<button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-edit icon"></i></button>`;
            
 
           }}

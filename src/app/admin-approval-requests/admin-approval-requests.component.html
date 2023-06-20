@@ -47,38 +47,38 @@
                         </div>
                       
                         <div class = 'output_container'>
-                          <label for="base exponent">REQUESTER NAME</label>
+                          <label for="base exponent">Requester Name</label>
                           <output id="output_box" for="base exponent">
                             {{requester_name}}
                           </output>
                         </div>
                         <div class = 'output_container'>
-                          <label for="base exponent">MOBILE NUMBER</label>
+                          <label for="base exponent">Mobile Number</label>
                           <output id="output_box" for="base exponent">
                             {{number}}
                           </output>
                         </div>
                         <div class = 'output_container'>
-                          <label for="base exponent">EMAIL</label>
+                          <label for="base exponent">Email</label>
                           <output id="output_box" for="base exponent">
                             {{email}}
                           </output>
                         </div>
                         <div class = 'output_container'>
-                          <label for="base exponent">CATEGORY</label>
+                          <label for="base exponent">Category</label>
                           <output id="output_box" for="base exponent">
                             {{category}}
                           </output>
                         </div>
                         <div class = 'output_container' >
-                          <label for="base exponent">ISSUE WITH</label>
+                          <label for="base exponent">Issue With</label>
                           <output id="output_box" for="base exponent">
                            {{issue_with}}
                           </output>
                         </div>
 
 <div class = 'output_container'>
-  <label for="select" >CATEGORY</label>
+  <label for="select" >Category</label>
   <select class="selectpicker" id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.category" name="category" (ngModelChange)="category_change($event)">
     <option selected>SELECT</option>
     <option *ngFor="let i of category_data">{{i.category_name}}</option>
@@ -87,9 +87,9 @@
 </div>
                        
                       <div class = 'output_container'>
-                        <label for="select">PRIORITY</label>
+                        <label for="select">Priority</label>
                         <select class="selectpicker" id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.priority" name="priority">
-                          <option selected>SELECT</option>
+                          <option selected>Select</option>
                           <option *ngFor="let i of priority_data">{{i.priority_type}}</option>
                           <div *ngFor="let i of data.category"></div>
                           </select>
@@ -97,7 +97,7 @@
                       </div>
                        
                       <div class = 'output_container'>
-                        <label for="select">L1 ATTENDEE</label>
+                        <label for="select">L1 Attendee</label>
                         <select class="selectpicker"  id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.l1_attendee" name="l1_attendee" (ngModelChange)="l1_attendee_change($event)">
                           <option selected>SELECT</option>
                           <option *ngFor="let i of l1_attendee_data">{{i.attendee}}</option>
@@ -107,7 +107,7 @@
                        
                         
 <div class = 'output_container'>
-  <label for="select">L2 ATTENDEE</label>
+  <label for="select">L2 Attendee</label>
   <select class="selectpicker"  id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.l2_attendee" name="l2_attendee">
     <option selected>SELECT</option>
     <option *ngFor="let i of l2">{{i.attendee}}</option>

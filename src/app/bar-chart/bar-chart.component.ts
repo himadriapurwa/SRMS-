@@ -12,37 +12,37 @@ i:any;
   constructor(private hs: HeroService) { }
   public chart: any;
 
-  processChartData(apiData: any) {
-    const labels: string[] = [];
-    const values: number[] = [];
+  // processChartData(apiData: any) {
+  //   const labels: string[] = [];
+  //   const values: number[] = [];
   
-    // Assuming the API response is an array of objects with 'x' and 'y' properties
-    for (const item of this.data) {
-      labels.push(item.count);
-      values.push(item.status);
-    }
+  //   // Assuming the API response is an array of objects with 'x' and 'y' properties
+  //   for (const item of this.data) {
+  //     labels.push(item.count);
+  //     values.push(item.status);
+  //   }
   
-    return { labels, values };
-  }
+  //   return { labels, values };
+  // }
 
 
 
   ngOnInit(): void {
-    this.hs.ajax('GetStatusAndCount','http://schemas.cordys.com/himadri_srmWSP',{ })
-      .then((resp: any) =>
-       {
-        this.data = this.hs.xmltojson(resp, 'himadri_request_approval');
-        // this.data=resp;
-       console.log("resp",resp)}
-       );
+    // this.hs.ajax('GetStatusAndCount','http://schemas.cordys.com/himadri_srmWSP',{ })
+    //   .then((resp: any) =>
+    //    {
+    //     this.data = this.hs.xmltojson(resp, 'himadri_request_approval');
+    //     // this.data=resp;
+    //    console.log("resp",resp)}
+    //    );
        
     this.createChart();
   }
   
   createChart(){
-    const { labels, values } = this.processChartData(this.data);
+    // const { labels, values } = this.processChartData(this.data);
     
-    console.log(labels, values)
+    // console.log(labels, values)
     this.chart = new Chart("MyChart", {
       type: 'polarArea', //this denotes the type of chart
 

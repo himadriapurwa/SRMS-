@@ -42,9 +42,9 @@
             <form action="#">
               <div class="user-details">
 <div class = 'output_container'>
-  <label for="select" style="margin-right: 6%; margin-bottom: 1%;">CATEGORY</label>
+  <label for="select" style="margin-right: 6%; margin-bottom: 1%;">Category</label>
   <select class="selectpicker" id="output_box" data-style="btn-inverse" [(ngModel)]="editData.category" name="category">
-    <option selected>SELECT</option>
+    <option selected>Select</option>
     <option *ngFor="let i of category_data">{{i.category_name}}</option>
     <div *ngFor="let i of category_data"></div>
     </select>
@@ -53,7 +53,7 @@
 
                   <div class="form-group" style="    margin-left: 12px;
                   " >
-                    <label for="exampleFormControlTextarea1" style="margin-bottom: 1%;">ISSUE WITH</label>
+                    <label for="exampleFormControlTextarea1" style="margin-bottom: 1%;">Issue With</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" [(ngModel)]="editData.issue_with" name="issue_with"></textarea>
                   </div>
               </div>
