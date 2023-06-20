@@ -221,7 +221,6 @@ this.hs.ajax('GetAllCategoryDetails','http://schemas.cordys.com/himadri_srmWSP',
       )
       .then((resp: any) => {
          this.priority_data = this.hs.xmltojson(resp, 'himadri_priority_table');
-        
       });
       
   }

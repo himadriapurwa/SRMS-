@@ -1,10 +1,17 @@
 <app-navbar></app-navbar>
 <div>
-  <h1 style="text-align: center; color: #000;;font-weight: bold;  font-size: 200%;padding-top: 1.5%; padding-bottom: 0.5%;">List Of Request For Approval</h1>
+  <h1
+    style="text-align: center; color: 000;font-weight: bold;  font-size: 200%;padding-top: 1.5%; padding-bottom: 0.5%;">
+   Approval Request List</h1>
+    
 </div>
-<div class="container-fluid table-responsive" style="background: linear-gradient(135deg, #98c4e1, #c7a8d4);border-radius: 15px">
-  <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped " id="approval_table">
-      <thead class="table-dark ">
+<div class="container-fluid table-responsive "
+  style="  background: linear-gradient(135deg, #98c4e1, #c7a8d4); padding:2% 3% 2% 3%;border-radius: 25px"
+  id="attendee-table">
+
+  <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped ">
+
+    <thead class="table-dark ">
              <!-- <tr>
                <th scope="col">REQUEST ID</th>
                <th scope="col">STATUS</th>
@@ -34,13 +41,13 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel" style="color:#000;">{{sr_id}}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
-                <div class="container">
+              <div class="modal-body  ">
+                <div class="container labels">
                   <div class="content">
                     <form action="#">
                       <div class="user-details">
-                        <div class = 'output_container'>
-                          <label for="base exponent">Request Id</label>
+                        <div class = "output_container ">
+                          <label for="base exponent" >Request Id</label>
                           <output id="output_box" for="base exponent">
                             {{sr_id}}
                           </output>
@@ -123,8 +130,9 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                <input type="submit"  class="btn btn-primary"value="Submit" (click)="submit()">
+                <!-- <button type="submit" class="btn btn-secondary"><i class="fas fa-save fa-lg"></i></button> -->
+                
+                <input type="submit"  class="btn btn-primary" value="Submit"  (click)="submit()">
               </div>
             </div>
           </div>

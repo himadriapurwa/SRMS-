@@ -1,5 +1,6 @@
 
 <h2 style="color:aliceblue">EMPLOYEE HISTORY</h2>
+
  <table class="table table-striped table-dark table-responsive">
     <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped table-dark table-responsive"></table> -->
 
@@ -15,8 +16,7 @@
     </thead>
     <tbody>
       <tr>
-        <!-- <th scope="row">1</th>
-        <td >REQUEST ID</td> -->
+     
         <tr *ngFor="let i of data.table" style="color:white">
         <td >{{ i.sr_id }}</td>
         <td >{{ i.category }}</td>
@@ -27,33 +27,3 @@
       </tr>
     </tbody>
   </table>
-<!-- 
-  <div class="row">
-   
-   
-    <div class="col-12">
-        <div class="table-responsive">
-        <table class="table-responsive">
-             <thead>
-                <tr style="color:white">
-                  <th class="text-nowrap">Budget Id</th>
-                </tr>
-              </thead> -->
-          <!--  <tbody>
-                <tr *ngFor="let i of data.table" style="color:white">
-                    <td class="text-nowrap">{{ i.budget_id }}</td>
-                    <td class="text-nowrap">{{ i.budget_code }}</td>
-                    <td class="text-nowrap">{{ i.proj_code }}</td>
-                    <td class="text-nowrap">{{ i.project_desc }}</td>
-                    <td class="text-nowrap">{{ i.actual_owner }}</td>
-                    <td class="text-nowrap">{{ i.current_status }}</td>
-                    <td class="text-nowrap">{{ i.created_by }}</td>
-                    <td class="text-nowrap">{{ i.status_desc }}</td>
-                    <td class="text-nowrap">{{ i.pa_opportunity_id }}</td>
-                    <td class="text-nowrap">{{ i.ud_user_name }}</td>
-                  </tr>
-            </tbody>
-        </table> 
-        </div>
-    </div>
-</div> -->

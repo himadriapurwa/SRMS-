@@ -4,6 +4,10 @@ body{
     background-color: rgb(205, 188, 223) ;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
 
 
+body { margin: 0; font-family: 'Poppins', sans-serif;}
+.labels{
+    font-weight: 500;
+   }

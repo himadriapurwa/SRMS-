@@ -26,7 +26,11 @@ export class LoginComponent implements OnInit{
       });
       console.log("logged in successfully with user :",this.data.username)
       this.hs._set('loggedInuser', this.data.username);
-      this.router.navigate(['/attendee-pending-req']) 
+      
+      setTimeout(() => {
+        this.router.navigate(['/attendee-pending-req']) 
+        
+    }, 5000);
       // debugger;
      
   }
