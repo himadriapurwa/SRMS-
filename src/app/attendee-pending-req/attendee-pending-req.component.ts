@@ -194,10 +194,6 @@ flag:any="";
       this.visibleTranferForm = !this.visibleTranferForm;
       this.flag='transfer';
       // hide the btn save changes and replace transefersaveChanges
-      
-    
-
-      
         (<HTMLInputElement> document.getElementById("resolveBtn")).disabled = true;
         (<HTMLInputElement> document.getElementById("cancelbtn")).disabled = true;
         (<HTMLInputElement> document.getElementById("pendingbtn")).disabled = true;

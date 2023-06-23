@@ -1,38 +1,44 @@
 
 <app-navbar></app-navbar>
-<div>
+<!-- <div>
   <h1 style="text-align: center; color: 000;font-weight: bold;  font-size: 200%;padding-top: 1.5%; padding-bottom: 0.5%;">History</h1>
 </div>
 <div class="container-fluid table-responsive " style="  background: linear-gradient(135deg, #98c4e1, #c7a8d4); padding:2% 3% 2% 3%;border-radius: 25px">
- 
   <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped ">
-
-    <thead class="table-dark ">
-         <tr>
-           <th scope="col">REQUEST ID</th>
-           <th scope="col">ISSUE</th>
-        
-           <th scope="col">CATEGORY</th>
-           <th scope="col">PRIORITY</th>
-           <th scope="col">STATUS</th>
-           <th scope="col">RESOLUTION</th>
-         </tr>
-       </thead>
-       <tbody>
-         <tr>
-           <tr *ngFor="let i of data.table" style="color:white">
-           <td >{{ i.sr_id }}</td>
-           <td >{{ i.issue_with }}</td>
-           <td >{{ i.category }}</td>
-           <td >{{ i.priority }}</td>
-           <td >{{ i.status }}</td>
-           <td >{{ i.resolution_description }}</td>
-         </tr>
-       </tbody>
-     </table>
-
-
+    <thead class="table-dark "> -->
+<div class="card text-center m-3">
+  <div class="card-header headerr" >
+  <H1 style=" font-weight: bold;">History</H1>  
+  </div>
+  <div class="card-body" style="background:rgb(223, 209, 238)">
+ <div class="table-responsive" style=" padding-right:0.4%">
+      <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped ">
+        <thead class="table-dark" >
+             <tr>
+               <th scope="col">REQUEST ID</th>
+               <th scope="col">ISSUE</th>
+               <th scope="col">CATEGORY</th>
+               <th scope="col">PRIORITY</th>
+               <th scope="col">STATUS</th>
+               <th scope="col">RESOLUTION</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+              <tr *ngFor="let i of data.table" style="color:white">
+               <td >{{ i.sr_id }}</td>
+               <td >{{ i.issue_with }}</td>
+               <td >{{ i.category }}</td>
+               <td >{{ i.priority }}</td>
+               <td >{{ i.status }}</td>
+               <td >{{ i.resolution_description }}</td>
+             </tr>
+           </tbody>
+      </table>
+    </div>
+  </div>
 </div>
+
 <div style="margin-top: 5%;">
   <app-footer></app-footer>
 </div>

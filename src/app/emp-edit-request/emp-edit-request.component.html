@@ -1,10 +1,10 @@
 <app-navbar></app-navbar>
-
-      <div>
-        <h1 style="text-align: center; color: 000;font-weight: bold;  font-size: 200%;padding-top: 1.5%; padding-bottom: 0.5%;">REQUEST LIST</h1>
-      </div>
-      <!-- <i class="fas fa-edit"></i> -->
-      <div class="container-fluid table-responsive " style="  background: linear-gradient(135deg, #98c4e1, #c7a8d4); padding:2% 3% 2% 3%;border-radius: 25px;">
+<div class="card text-center m-3">
+  <div class="card-header headerr" >
+  <H1 style=" font-weight: bold;">REQUEST LIST</H1>  
+  </div>
+  <div class="card-body" style="background:rgb(223, 209, 238)">
+ <div class="table-responsive" style=" padding-right:0.4%">
         <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped ">
           <thead class="table-dark ">
              <!-- <tr>
@@ -26,7 +26,8 @@
            </tbody>
     </table>
   </div>
-
+</div>
+</div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
     <div class="modal-content">
@@ -36,8 +37,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="container">
-
+      <div class="container labels">
           <div class="content">
             <form action="#">
               <div class="user-details">
@@ -66,7 +66,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        <!-- <button type="button" class="btn btn-primary">Save</button> -->
         <!-- <input type="submit" value="Submit" (click)="submit()"> -->
         <input type="submit"  class="btn btn-primary"value="Submit" (click)="submit()">
 

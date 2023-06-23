@@ -1,51 +1,46 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
+    <div class="container-fluid" >
       <a class="navbar-brand" href="/landing-page">SRMS</a>
-      
-      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding-left: 5%;">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="/login" >Login</a>
+         
+          <li class="nav-item active" routerLinkActive="active">
+            <a class="nav-link " routerLinkActive="active" routerLink="/emp-raise-req" aria-current="page">Raise Requests</a>
           </li>
-          
-          <li class="nav-item active" (click)="active_class()">
-            <a class="nav-link " aria-current="page" href="/emp-raise-req">Raise Requests</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link " routerLinkActive="active" routerLink="/emp-edit-request" aria-current="page">Edit Requests</a>
           </li>
-          <li class="nav-item" (click)="active_class()">
-            <a class="nav-link " aria-current="page" href="/emp-edit-request">Edit Requests</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link "  routerLinkActive="active" routerLink="/emp-history" aria-current="page" >History</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="/emp-history">History</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="/attendee-pending-req">Attendee</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link " routerLinkActive="active" routerLink="/attendee-pending-req" aria-current="page">Attendee</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Admin
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu ">
               <li><a class="dropdown-item" href="/admin-approval-requests">Approval Requests</a></li>
               <li><a class="dropdown-item" href="/category-details">Category Details</a></li>
-              <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/attendee-ratings">Attendee Ratings</a></li>
               <li><a class="dropdown-item" href="/admin-history">History</a></li>
               <li><a class="dropdown-item" href="/bar-chart">Graphical View</a></li>
-
             </ul>
           </li>
         </ul>
       </div>
-      
       <div  style="margin-right: 4%;"><i class="fas fa-user icon" style="color: #331f51;"></i>
        {{a}}  
       </div>
-      <!-- <i class="fas fa-sign-out-alt fa-lg icon" style="color: #4a2d62;"></i> -->
+      <div>
+       <a href="/landing-page"> <i class="fas fa-sign-out-alt fa-lg icon" style="color: #4a2d62;"></i></a>
+      </div>
+     
     </div>
   </nav>
   

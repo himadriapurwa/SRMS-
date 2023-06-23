@@ -10,10 +10,12 @@ export class NavbarComponent {
   userDetails: any;
   a: any;
   constructor(private hs: HeroService){}
+
+
    active_class():any {
     $('li').on('click', function(){
       $('li').removeClass('active');
-      $(this).toggleClass('active');
+      // $(this).toggleClass('active');
     })
   }
   ngOnInit(): void {

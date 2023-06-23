@@ -16,14 +16,12 @@
   /* border-color: #9b59b6; */
    padding-top: 2%;
   margin-bottom: 15px;
-   
-
 }
 .output_container{
     width: 40%; 
     display: inline-block;
-    margin-right: 8%;
-    margin-left: 2%;
+    margin-right: 5%;
+    margin-left: 5%;
 
 }
 .modal-header{
