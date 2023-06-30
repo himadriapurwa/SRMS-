@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../hero.service';
+import { ToastrService } from 'ngx-toastr';
 declare var $: any;
 @Component({
   selector: 'app-attendee-pending-req',
@@ -75,6 +76,7 @@ flag:any="";
       )
       .then((resp: any) => {
         this.data.table = this.hs.xmltojson(resp, 'himadri_request_approval');
+        this.toastr.success('Request Resolved Successfully');
       }); 
     }
     else if(this.flag=='transfer')
@@ -104,6 +106,7 @@ flag:any="";
     )
     .then((resp: any) => {
       this.data.table = this.hs.xmltojson(resp, 'himadri_request_approval');
+      this.toastr.success('Request Transferred.');
     });
   }  
 
@@ -156,7 +159,7 @@ flag:any="";
           'http://schemas.cordys.com/default',
           {sr_id:this.sr_id}
         )
-        .then((resp: any) => {console.log("SLA time started")});
+        .then((resp: any) => { this.toastr.success("Request in pending.");});
 
         (<HTMLInputElement> document.getElementById("transferbtn")).disabled = true;
         (<HTMLInputElement> document.getElementById("cancelbtn")).disabled = true;
@@ -164,6 +167,7 @@ flag:any="";
         // (<HTMLInputElement> document.getElementById("reso")).visibility = true;
       // $('#attendee-table').DataTable().ajax.reload();
     } else {
+      this.toastr.warning('Enter Reamrks');
       console.log('enter remarks');
     }
   }
@@ -174,10 +178,11 @@ flag:any="";
     if (this.dataModal.remarks != '') {
       this.flag="resolve";
     console.log('request resolved');
-
+   
     // $('#exampleModal').modal('hide');
     // $('#resolveModal').modal('show');
   } else {
+    this.toastr.warning('Enter remarks');
     console.log('enter remarks');
   } 
   this.visible = !this.visible;
@@ -187,8 +192,6 @@ flag:any="";
   //
     // show groupbox
   }
-
-
   tranfer_request() {
     if (this.dataModal.remarks != '') {
       this.visibleTranferForm = !this.visibleTranferForm;
@@ -198,7 +201,7 @@ flag:any="";
         (<HTMLInputElement> document.getElementById("cancelbtn")).disabled = true;
         (<HTMLInputElement> document.getElementById("pendingbtn")).disabled = true;
     } else {
-      console.log('enter remarks');
+      this.toastr.warning('Enter Remarks.');
     }
     // show transfergroupbox
   }
@@ -228,6 +231,7 @@ flag:any="";
         )
         .then((resp: any) => {
           this.data.table = this.hs.xmltojson(resp, 'himadri_request_approval');
+          this.toastr.success('Request Rejected.');
         });
 
       this.hs
@@ -241,8 +245,8 @@ flag:any="";
           console.log('task_id', this.task_id);
         });
     } else {
-
-      console.log('enter remarks');
+      this.toastr.warning('Enter Remarks.');
+   
     }
   }
 
@@ -271,10 +275,12 @@ flag:any="";
         )
         .then((resp: any) => {
           this.data.table = this.hs.xmltojson(resp, 'himadri_request_approval');
+          this.toastr.success('Request Resolved.');
         });
     
   } else {
-    console.log('enter remarks');
+    this.toastr.warning('Enter Remarks.');
+  
   } 
 
   this.hs
@@ -314,9 +320,11 @@ flag:any="";
         )
         .then((resp: any) => {
           this.data.table = this.hs.xmltojson(resp, 'himadri_request_approval');
+          this.toastr.success('Request Send to L1 Attendee.');
         });
     
   } else {
+    this.toastr.warning('Enter Remarks.');
     console.log('enter remarks');
   } 
 
@@ -358,9 +366,11 @@ flag:any="";
         )
         .then((resp: any) => {
           this.data.table = this.hs.xmltojson(resp, 'himadri_request_approval');
+          this.toastr.success('Request Rejected');
         });
     
   } else {
+    this.toastr.success('Enter Remarks.');
     console.log('enter remarks');
   } 
 
@@ -427,7 +437,7 @@ flag:any="";
 // }
 
 
-  constructor(private hs: HeroService) {}
+  constructor(private hs: HeroService,private toastr: ToastrService) {}
 
   someClickHandler(info: any): void {
     console.log('heloooooo: ', info);

@@ -1,5 +1,5 @@
-<app-navbar></app-navbar>
-
+<!-- <app-navbar></app-navbar> -->
+<app-attendee-nav></app-attendee-nav>
 <!-- TABLE -->
 <div class="card text-center m-3">
   <div class="card-header headerr">
@@ -21,10 +21,6 @@
 </div>
 </div>
 </div>
-
-
-
-
 <!-- MODAL -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
@@ -158,9 +154,6 @@
   </div>
 </div>
 
-
-
-
 <!-- L2 request modal -->
 
 <div class="modal fade" id="l2_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -216,12 +209,12 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" [(ngModel)]="dataModal.remarks"
                   name="remarks"></textarea>
               </div>
-              <div style="margin-left: 5%;">
-                <button type="button" class="btn btn-success" id='resolvedbtn' style="margin: 4%;"
+              <div class="container">
+                <button type="button" class="btn btn-success " id='resolvedbtn' style="margin-left: 85px; margin-top: 4%;"
                 (click)="resolved_request()">Resolved </button>
-         <button type="button" id="resendbtn" class="btn btn-warning" style="margin: 4%;"
+         <button type="button" id="resendbtn" class="btn btn-warning " style="margin-left: 85px; margin-top: 4%;"
                  (click)="resend()">Resend To L1</button>
-           <button type="button" id="rejectbtn" class="btn btn-danger" style="margin: 4%;"
+           <button type="button" id="rejectbtn" class="btn btn-danger" style="margin-left: 85px;  margin-top: 4%;"
              (click)=" reject_request()">Cancel</button>
               </div>
          
@@ -285,9 +278,8 @@
         </div>
       </div>
       <div class="modal-footer" style="padding:2%">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-        <button type="submit" class="btn btn-primary" id="saveChanges" value="Submit" (click)="saveChanges()">Save</button>
+        <button type="button" class="btn btn-secondary  " data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary " id="saveChanges" value="Submit" (click)="saveChanges()">Save</button>
       </div>
     </div>
   </div>

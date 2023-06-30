@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../hero.service';
 import Swal from 'sweetalert2'; 
+import { ToastrService } from 'ngx-toastr';
 declare var $:any;
 
 @Component({
@@ -40,7 +41,7 @@ export class AdminApprovalRequestsComponent implements OnInit{
   changed_category:any;
   req_id: any;
   req_id_approval: any;
-    constructor(private hs: HeroService){ }
+    constructor(private hs: HeroService, private toastr: ToastrService){ }
 
 
 
@@ -87,11 +88,11 @@ this.hs
       )
       .then((resp: any) => {
        console.log("bpm triggered")
+       this.toastr.success('Request Approved.');
       });
 
       $('#approval_table').DataTable().ajax.reload();
       $('#exampleModal').modal('hide');
-      Swal.fire('Request Approved')
    }
    category_change(event:any) {
   //  l1 attendee list
@@ -222,7 +223,6 @@ this.hs.ajax('GetAllCategoryDetails','http://schemas.cordys.com/himadri_srmWSP',
       .then((resp: any) => {
          this.priority_data = this.hs.xmltojson(resp, 'himadri_priority_table');
       });
-      
   }
   
   CopyData(data: Object | any[]) {

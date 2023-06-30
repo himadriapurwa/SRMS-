@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../hero.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-emp-history',
@@ -11,8 +13,12 @@ export class EmpHistoryComponent implements OnInit{
   data: any={
     table:[],
   }
-    constructor(private hs: HeroService){ }
+  // showSuccess() {
+  //   this.toastr.success('Hello world!', 'Toastr fun!');
+  // }
+    constructor(private hs: HeroService,private toastr: ToastrService){ }
     ngOnInit(): void {
+      
       let that = this;
       this.dtOptions = {
         pagingType: 'full_numbers',
@@ -84,16 +90,10 @@ export class EmpHistoryComponent implements OnInit{
             else if(data=="Rejected"){
               return `<span class="badge badge-pill badge-primary">Rejected</span>`; 
             }
-            else if(data=="Rejected"){
-              return `<span class="badge badge-pill badge-primary">Rejected</span>`; 
+            else if(data=="Pending with L2 Attendee"){
+              return `<span class="badge badge-pill badge-primary">Pending with L2 Attendee</span>`; 
             }
-            else if(data=="Rejected"){
-              return `<span class="badge badge-pill badge-primary">Rejected</span>`; 
-            }
-            else if(data=="Rejected"){
-              return `<span class="badge badge-pill badge-primary">Rejected</span>`; 
-            }
-            
+           
             return `<span class="badge badge-pill badge-primary">Resolved</span>`;
            
 
@@ -105,6 +105,7 @@ export class EmpHistoryComponent implements OnInit{
           },
         ],
       };
+      
   }
   CopyData(data: Object | any[]) {
     //throw new Error('Method not implemented.');

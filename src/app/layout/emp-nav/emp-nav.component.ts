@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeroService } from 'src/app/hero.service';
-
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-emp-nav',
+  templateUrl: './emp-nav.component.html',
+  styleUrls: ['./emp-nav.component.css']
 })
-export class NavbarComponent {
+export class EmpNavComponent implements OnInit {
+
   userDetails: any;
   a: any;
   constructor(private hs: HeroService){}
@@ -32,5 +32,7 @@ export class NavbarComponent {
     console.log('a', this.a);
   });
   }
+
 }
+
 

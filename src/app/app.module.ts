@@ -28,6 +28,15 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NgChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+import { AdminNavComponent } from './layout/admin-nav/admin-nav.component';
+import { EmpNavComponent } from './layout/emp-nav/emp-nav.component';
+import { AttendeeNavComponent } from './layout/attendee-nav/attendee-nav.component';
+import { AttendeeDetailsComponent } from './attendee-details/attendee-details.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,8 +57,11 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
     ModalComponent,
     AttendeePendingReqComponent,
     LandingPageComponent,
-    BarChartComponent
-   
+    BarChartComponent,
+    AdminNavComponent,
+    EmpNavComponent,
+    AttendeeNavComponent,
+    AttendeeDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +69,9 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
     RouterModule,
     FormsModule,
     DataTablesModule,
-    NgChartsModule
+    NgChartsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

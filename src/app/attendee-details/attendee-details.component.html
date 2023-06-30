@@ -9,13 +9,13 @@
   <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped ">
 
     <thead class="table-dark ">
-         <tr>
+         <!-- <tr>
            <th scope="col">CATEGORY</th>
            <th scope="col">ATTENDEE</th>
            <th scope="col">PRIORITY</th>
-         </tr>
+         </tr> -->
        </thead>
-       <tbody>
+       <!-- <tbody>
          <tr>
            
            <tr *ngFor="let i of data.table" style="color:white">
@@ -23,40 +23,29 @@
            <td >{{ i.attendee }}</td>
            <td >{{ i.attendee_type}}</td>
          </tr>
-       </tbody>
+       </tbody> -->
      </table>
 </div>
   </div>
   </div>
 
-  <button type="button" class="btn btn-secondary" id='hideshow' (click)="showDiv('div1')">Add Category</button>
-  <button type="button" class="btn btn-secondary" (click)="showDiv('div2')" >Update Category</button>
-  <button type="button" class="btn btn-secondary" (click)="showDiv('div3')" >Delete Category</button>
+  <button type="button" class="btn btn-secondary" id='hideshow' (click)="showDiv('div1')">Add Attendee</button>
+  <button type="button" class="btn btn-secondary" (click)="showDiv('div2')" >Update Attendee</button>
+  <button type="button" class="btn btn-secondary" (click)="showDiv('div3')" >Remove Attendee</button>
 
   <div id="addCategoryForm" *ngIf="selectedDiv === 'div1'">
     <div class="card text-center m-3" style="background:rgb(223, 209, 238)">
       <div class="card-body">  
         <div class="output_container">
-          <label for="category">Category</label>
+          <label for="category">Attendee Name</label>
          
-            <input class="form-control" type="text" placeholder="Category" name="category" [(ngModel)]="dataModal.category">
+            <input class="form-control" type="text" placeholder="Attendee" name="category" [(ngModel)]="dataModal.category">
         </div>  
-        <div class = 'output_container'>
-          <label for="select">L1 Attendee</label>
-          <select class="selectpicker"  id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.l1_attendee" name="l1_attendee" (ngModelChange)="l1_attendee_change($event)">
-            <option selected>SELECT</option>
-            <option *ngFor="let i of attendee_data" value={{i.attendee_id}}>{{i.attendee}}</option>
-            <div *ngFor="let i of attendee_data"></div>
-            </select>
-        </div>
-        <div class = 'output_container'>
-          <label for="select">L2 Attendee</label>
-          <select class="selectpicker"  id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.l2_attendee" name="l2_attendee">
-            <option selected>SELECT</option>
-            <option *ngFor="let i of attendee_data" value={{i.attendee_id}}>{{i.attendee}}</option>
-            <div *ngFor="let i of attendee_data"></div>
-            </select>
-         </div>
+        <div class="output_container">
+            <label for="category">Attendee Email</label>
+              <input class="form-control" type="text" placeholder="Attendee Email" name="l1_attendee" [(ngModel)]="dataModal.l1_attendee">
+          </div>  
+      
          <div class = 'output_container'>
           <button type="button" class="btn btn-secondary" (click)="saveAddCategory()">Save</button>
          </div>
@@ -66,11 +55,9 @@
 
   </div>
   <!-- //// update category details -->
-  <div id="updateCategoryForm" *ngIf="selectedDiv === 'div2'">
+  <!-- <div id="updateCategoryForm" *ngIf="selectedDiv === 'div2'">
     <div class="card text-center m-3" style="background:rgb(223, 209, 238)">
-      <!-- <div class="card-header">
-        Add New Category
-      </div> -->
+     
       <div class="card-body">  
         <div class="output_container">
           <label for="category">Category</label>
@@ -101,7 +88,10 @@
          </div>
       </div>
     </div>
-  </div>
+  </div> -->
+
+
+
   <!-- delete category details -->
   <div id="deleteCategoryForm" *ngIf="selectedDiv === 'div3'">
     <div class="card text-center m-3" style="background:rgb(223, 209, 238)">
@@ -110,10 +100,10 @@
       </div> -->
       <div class="card-body">  
         <div class="output_container">
-          <label for="category">Category</label>
+          <label for="category">Attendee</label>
           <select class="selectpicker" id="output_box" data-style="btn-inverse" name="category"  [(ngModel)]="dataModal.category_id">
             <option selected>SELECT</option>
-            <option *ngFor="let i of category_data" value={{i.cat_id}}>{{i.category_name}}</option>
+            <option *ngFor="let i of data" value={{i.attendee_id}}>{{i.attendee}}</option>
             <div *ngFor="let i of data.category"></div>
             </select>
         </div>  

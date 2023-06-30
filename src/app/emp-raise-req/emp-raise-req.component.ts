@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../hero.service';
 import Swal from 'sweetalert2';
+import { ToastrService } from 'ngx-toastr';
+
 // import 'sweetalert2/src/sweetalert2.scss';
 @Component({
   selector: 'app-emp-raise-req',
@@ -18,14 +20,27 @@ export class EmpRaiseReqComponent implements OnInit {
     issue_with: '',
     sr_id: '',
   };
-  category_data: any;
+  category_data: any=[];
   data1: any={};
-  constructor(private hs: HeroService) {}
+  userData: any=[];
+  userName: any;
+  constructor(private hs: HeroService,private toastr: ToastrService) {}
   ngOnInit(): void {
     this.data1=this.hs._get('loggedInuser')
-    console.log(this.data1,"aa")
+    // this.hs._set('loggedInuser', this.data1);
+    this.hs
+    .ajax(
+      'GetUserDetails',
+      'http://schemas.cordys.com/UserManagement/1.0/User',
+      {}
+    )
+    .then((resp: any) => {
+      this.userData = this.hs.xmltojson(resp, 'User');
+      console.log('userDetails', this.userData);
+      this.userName = this.userData.UserName;
+      console.log('userName', this.userName);
+    });
 
-    this.hs._set('loggedInuser', this.data1);
 
     this.hs
       .ajax('Get_max_id', 'http://schemas.cordys.com/himadri_srmWSP', {})
@@ -105,9 +120,11 @@ export class EmpRaiseReqComponent implements OnInit {
         // this.data.table = this.hs.xmltojson(resp, 'himadri_request');
         console.log("empBpmTriggered for sr_id",this.sr_id)
       });
-      Swal.fire('New Request has been raised')
+      // Swal.fire('New Request has been raised')
+      this.toastr.success('New Request Raised Successfully.');
     }
     else
     {
-    alert("enter correct details");
+      this.toastr.warning('Please Enter Correct Details');
+    // alert("enter correct details");
     }}}

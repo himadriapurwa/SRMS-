@@ -19,7 +19,6 @@ export class AdminHistoryComponent implements OnInit{
         pageLength: 8,
         lengthMenu: [5, 8, 15],
         processing: true,
-  
         ajax: (dataTablesParameters: any, callback) => {
           that.hs
             .ajax(

@@ -16,10 +16,11 @@ import { AttendeeRatingsComponent } from './attendee-ratings/attendee-ratings.co
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AttendeePendingReqComponent } from './attendee-pending-req/attendee-pending-req.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { AttendeeDetailsComponent } from './attendee-details/attendee-details.component';
 const routes: Routes = [
   {
   path: '',
-  component: LayoutComponent,
+  component: LandingPageComponent,
   children:[
     { path: 'dashboard', loadChildren: () => import('./layout/dashboard/dashboard.module').then(m => m.DashboardModule) },
     { path: 'user', loadChildren: () => import('./layout/user/user.module').then(m => m.UserModule) }
@@ -28,7 +29,6 @@ const routes: Routes = [
 {
   path:'login', component:LoginComponent
 },
-
 {
   path:'attendee-pending-req', component:AttendeePendingReqComponent
 },
@@ -49,6 +49,9 @@ const routes: Routes = [
 },
 {
   path:'category-details', component:CategoryDetailsComponent
+},
+{
+  path:'attendee-details', component:AttendeeDetailsComponent
 },
 {
   path:'emp-history', component:EmpHistoryComponent
