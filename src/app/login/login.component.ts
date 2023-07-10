@@ -24,8 +24,6 @@ export class LoginComponent implements OnInit{
       .authenticate(this.data.username, this.data.password)
       .done((resp: any) => {
         console.log('Done');
-
-
             $.cordys.ajax({
                   method: 'GetUserDetails',
                   namespace: 'http://schemas.cordys.com/UserManagement/1.0/Organization',
@@ -59,7 +57,7 @@ export class LoginComponent implements OnInit{
       this.hs._set('loggedInuser', this.data.username);
       
       setTimeout(() => {
-        this.router.navigate(['/attendee-pending-req']) 
+        // this.router.navigate(['/attendee-pending-req']) 
         
     }, 5000);
       // debugger;

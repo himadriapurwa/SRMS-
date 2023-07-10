@@ -24,6 +24,8 @@ export class EmpRaiseReqComponent implements OnInit {
   data1: any={};
   userData: any=[];
   userName: any;
+  userEmail: any;
+  userPhoneNumber: any;
   constructor(private hs: HeroService,private toastr: ToastrService) {}
   ngOnInit(): void {
     this.data1=this.hs._get('loggedInuser')
@@ -39,6 +41,11 @@ export class EmpRaiseReqComponent implements OnInit {
       console.log('userDetails', this.userData);
       this.userName = this.userData.UserName;
       console.log('userName', this.userName);
+      this.userEmail = this.userData.ContactInformation.email;
+      console.log('userEmail', this.userEmail);
+      this.userPhoneNumber = this.userData.ContactInformation.phone;
+
+
     });
 
 

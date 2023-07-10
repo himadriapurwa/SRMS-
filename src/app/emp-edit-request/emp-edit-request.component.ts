@@ -28,8 +28,31 @@ export class EmpEditRequestComponent implements OnInit{
     constructor(private hs: HeroService){ }
     submit() {
       console.log('data', this.editData);
+      // this.hs
+      // .ajax(
+      //   'UpdateHimadri_request_approval',
+      //   'http://schemas.cordys.com/himadri_srmWSP',
+      //   {
+      //     tuple: {
+      //       old:{ himadri_request_approval :{
+      //         request_id:this.req_id_approval
+      //       }
+      //       },
+      //       new: {
+      //         himadri_request_approval : {
+      //           category: this.editData.category,
+      //           request_info: this.editData.issue_with,
+      //         },
+      //       },
+      //     },
+      //   }
+      // )
+      // .then((resp: any) => {
+      //   this.data.table = this.hs.xmltojson(resp, 'himadri_request_approval');
 
-      
+      //   // reload table
+      //   $('#approval_table').DataTable().ajax.reload(); 
+      // });
    }
    
    someClickHandler(info: any): void {

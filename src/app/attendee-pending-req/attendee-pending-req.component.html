@@ -7,7 +7,7 @@
   </div>
   <div class="card-body" style="background:rgb(223, 209, 238)">
  <div class="table-responsive" style=" padding-right:0.4%">
-      <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped ">
+      <table id="approval_table" datatable [dtOptions]="dtOptions" class="row-border hover table table-striped ">
     
         <thead class="table-dark" >
     
@@ -98,7 +98,7 @@
                   <option value="Requirement Completed">Requirement Completed</option>
                   </select>
               </div>
-            <div class="form-group" style="width:90%; margin-left: 2%;">
+            <div class="form-group" style="width:90%; margin-left: 5%;">
               <label for="exampleFormControlTextarea1">Provide Details For The Resolution</label>
 
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" [(ngModel)]="dataModal.resolution_description"

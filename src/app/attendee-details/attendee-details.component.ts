@@ -71,16 +71,23 @@ export class AttendeeDetailsComponent implements OnInit {
        }  
   
        saveAddCategory(){
-        this.hs.ajax('UpdateHimadri_attendee','http://schemas.cordys.com/himadri_srmWSP',
+        
+        if((this.dataModal.l1_attendee.match("^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-z]{2,4}$"))){
+          this.hs.ajax('UpdateHimadri_attendee','http://schemas.cordys.com/himadri_srmWSP',
           {
             tuple: {
               new: {
                 himadri_attendee  : {
                   attendee: this.dataModal.category,
-                  attendee_email: this.dataModal.category,
+                  attendee_email: this.dataModal.l1_attendee,
                 },
               },}, })
         .then((resp: any) => {this.toastr.success('New Attendee added Successfully');});
+        }
+        else{
+          this.toastr.warning('Enter Valid Email.');
+        }
+       
   
     //     this.hs.ajax('CreateUserInOrganization','http://schemas.cordys.com/himadri_srmWSP',
     //     {
@@ -106,7 +113,7 @@ export class AttendeeDetailsComponent implements OnInit {
     //         )
     //   .then((resp: any) => {this.cat_id= this.hs.xmltojson(resp, 'himadri_category');
     // console.log('respdd',this.category_id)});
-  
+
       this.hs.ajax('UpdateHimadri_attendee_master','http://schemas.cordys.com/himadri_srmWSP',
       {
         tuple: {
@@ -117,7 +124,6 @@ export class AttendeeDetailsComponent implements OnInit {
               attendee_type:'l1' },
           },},})
     .then((resp: any) => {console.log("doneeee")});
-      
   
     this.hs.ajax('UpdateHimadri_attendee_master','http://schemas.cordys.com/himadri_srmWSP',
     {
@@ -129,9 +135,7 @@ export class AttendeeDetailsComponent implements OnInit {
             attendee_type:'l2' },
         },},})
   .then((resp: any) => {});
-  
        }
-  
       //  DELETE CATEGORY
        deleteCat(){
         this.hs.ajax('UpdateHimadri_attendee','http://schemas.cordys.com/himadri_srmWSP',

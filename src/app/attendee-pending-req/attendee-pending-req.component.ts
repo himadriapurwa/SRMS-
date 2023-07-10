@@ -121,7 +121,7 @@ flag:any="";
       console.log('task_id', this.task_id);
     });
     $('#exampleModal').modal('hide');
-
+    $('#approval_table').DataTable().ajax.reload(); 
 }     
 
 
@@ -248,6 +248,8 @@ flag:any="";
       this.toastr.warning('Enter Remarks.');
    
     }
+    $('#exampleModal').modal('hide');
+    $('#approval_table').DataTable().ajax.reload(); 
   }
 
 
@@ -294,6 +296,7 @@ flag:any="";
     console.log('task_id', this.task_id);
   });
   $('#l2_modal').modal('hide');
+  $('#approval_table').DataTable().ajax.reload(); 
   }
 
   resend(){
@@ -339,7 +342,7 @@ flag:any="";
     console.log('task_id', this.task_id);
   });
   $('#l2_modal').modal('hide');
-
+  $('#approval_table').DataTable().ajax.reload(); 
 }
 
    reject_request(){
@@ -385,7 +388,7 @@ flag:any="";
     console.log('task_id', this.task_id);
   });
   $('#l2_modal').modal('hide');
-
+  $('#approval_table').DataTable().ajax.reload(); 
 }
 
 

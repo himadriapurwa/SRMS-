@@ -5,7 +5,7 @@
   </div>
   <div class="card-body" style="background:rgb(223, 209, 238)">
  <div class="table-responsive" style=" padding-right:0.4%">
-  <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped ">
+  <table id="approval_table" datatable [dtOptions]="dtOptions" class="row-border hover table table-striped ">
 
     <thead class="table-dark ">
              <!-- <tr>
@@ -29,8 +29,6 @@
       </div>
     </div>
 <!-- MODAL -->
-
-
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
             <div class="modal-content">
@@ -43,40 +41,40 @@
                   <div class="content">
                     <form action="#">
                       <div class="user-details">
-                        <div class = "output_container ">
+                        <div class = "output_container">
                           <label for="base exponent" >Request Id</label>
-                          <output id="output_box" for="base exponent">
+                          <output id="output_box" class="disabled" for="base exponent" >
                             {{sr_id}}
                           </output>
                         </div>
                       
                         <div class = 'output_container'>
                           <label for="base exponent">Requester Name</label>
-                          <output id="output_box" for="base exponent">
+                          <output id="output_box" class="disabled" for="base exponent">
                             {{requester_name}}
                           </output>
                         </div>
                         <div class = 'output_container'>
                           <label for="base exponent">Mobile Number</label>
-                          <output id="output_box" for="base exponent">
+                          <output id="output_box" class="disabled" for="base exponent">
                             {{number}}
                           </output>
                         </div>
                         <div class = 'output_container'>
                           <label for="base exponent">Email</label>
-                          <output id="output_box" for="base exponent">
+                          <output id="output_box" class="disabled" for="base exponent">
                             {{email}}
                           </output>
                         </div>
                         <div class = 'output_container'>
                           <label for="base exponent">Category</label>
-                          <output id="output_box" for="base exponent">
+                          <output id="output_box" class="disabled" for="base exponent">
                             {{category}}
                           </output>
                         </div>
                         <div class = 'output_container' >
                           <label for="base exponent">Issue With</label>
-                          <output id="output_box" for="base exponent">
+                          <output id="output_box" class="disabled" for="base exponent">
                            {{issue_with}}
                           </output>
                         </div>
@@ -91,7 +89,7 @@
 </div>
                        
                       <div class = 'output_container'>
-                        <label for="select">Priority</label>
+                        <label for="select">Priority <span style="color: red;">*</span></label>
                         <select class="selectpicker" id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.priority" name="priority">
                           <option selected>Select</option>
                           <option *ngFor="let i of priority_data">{{i.priority_type}}</option>
@@ -101,7 +99,7 @@
                       </div>
                        
                       <div class = 'output_container'>
-                        <label for="select">L1 Attendee</label>
+                        <label for="select">L1 Attendee <span style="color: red;">*</span></label>
                         <select class="selectpicker"  id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.l1_attendee" name="l1_attendee" (ngModelChange)="l1_attendee_change($event)">
                           <option selected>SELECT</option>
                           <option *ngFor="let i of l1_attendee_data">{{i.attendee}}</option>
@@ -111,7 +109,7 @@
                        
                         
 <div class = 'output_container'>
-  <label for="select">L2 Attendee</label>
+  <label for="select">L2 Attendee <span style="color: red;">*</span></label>
   <select class="selectpicker"  id="output_box" data-style="btn-inverse" [(ngModel)]="dataModal.l2_attendee" name="l2_attendee">
     <option selected>SELECT</option>
     <option *ngFor="let i of l2">{{i.attendee}}</option>

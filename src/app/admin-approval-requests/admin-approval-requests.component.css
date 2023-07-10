@@ -1,3 +1,7 @@
+.disabled{
+  background-color: #f8f9fa;
+  color: rgb(65, 64, 64);
+}
 #output_box{
   font-family: 'Poppins', sans-serif;
     margin-bottom: 15px;
@@ -16,6 +20,7 @@
   /* border-color: #9b59b6; */
    padding-top: 2%;
   margin-bottom: 15px;
+  /* background-color: azure; */
 }
 .output_container{
     width: 40%; 

@@ -18,7 +18,6 @@ export class HeroService {
         parameters: parameters,
         success: function success(resp: any) {
           rev(resp);
-          //let test = $.cordys.json.find(resp, 'ScreenAccess');
         },
         error: function error(e1: any, e2: any, e3: any) {
           console.log('err=>', e1, e2, e3);
@@ -27,7 +26,7 @@ export class HeroService {
       });
     });
    }
-   
+  
    passdata: any = {};
   _get(key: any) {
     return this.passdata[key];

@@ -36,6 +36,7 @@ import { AdminNavComponent } from './layout/admin-nav/admin-nav.component';
 import { EmpNavComponent } from './layout/emp-nav/emp-nav.component';
 import { AttendeeNavComponent } from './layout/attendee-nav/attendee-nav.component';
 import { AttendeeDetailsComponent } from './attendee-details/attendee-details.component';
+import { LandingPageNavComponent } from './layout/landing-page-nav/landing-page-nav.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { AttendeeDetailsComponent } from './attendee-details/attendee-details.co
     EmpNavComponent,
     AttendeeNavComponent,
     AttendeeDetailsComponent,
+    LandingPageNavComponent,
   ],
   imports: [
     BrowserModule,

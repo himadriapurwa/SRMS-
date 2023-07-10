@@ -77,27 +77,27 @@ export class EmpHistoryComponent implements OnInit{
           {
             title: 'Status',
             data:'status',
-          render:function(data, type, row) {
-            if(data=="Pending with Admin"){
-              return `<span class="badge rounded-pill text-bg-primary">Pending with Admin</span>`;
-            }
-            else if(data=="InProgress with L1 Attendee"){
-              return `<span class="badge badge-pill badge-primary">InProgress with L1 Attendee</span>`; 
-            }
-            else if(data=="Initiated"){
-              return `<span class="badge badge-pill badge-primary">Initiated</span>`; 
-            }
-            else if(data=="Rejected"){
-              return `<span class="badge badge-pill badge-primary">Rejected</span>`; 
-            }
-            else if(data=="Pending with L2 Attendee"){
-              return `<span class="badge badge-pill badge-primary">Pending with L2 Attendee</span>`; 
-            }
+          // render:function(data, type, row) {
+          //   if(data=="Pending with Admin"){
+          //     return `<span class="badge rounded-pill text-bg-primary">Pending with Admin</span>`;
+          //   }
+          //   else if(data=="InProgress with L1 Attendee"){
+          //     return `<span class="badge badge-pill badge-primary">InProgress with L1 Attendee</span>`; 
+          //   }
+          //   else if(data=="Initiated"){
+          //     return `<span class="badge badge-pill badge-primary">Initiated</span>`; 
+          //   }
+          //   else if(data=="Rejected"){
+          //     return `<span class="badge badge-pill badge-primary">Rejected</span>`; 
+          //   }
+          //   else if(data=="Pending with L2 Attendee"){
+          //     return `<span class="badge badge-pill badge-primary">Pending with L2 Attendee</span>`; 
+          //   }
            
-            return `<span class="badge badge-pill badge-primary">Resolved</span>`;
+          //   return `<span class="badge badge-pill badge-primary">Resolved</span>`;
            
 
-          }
+          // }
         },
           {
             title: 'Resolution',

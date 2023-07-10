@@ -15,23 +15,28 @@
     <div class="content">
       <form action="#">
         <div class="user-details">
-          <!-- <div class="input-box">
+          <div class="input-box">
             <span class="details">Name</span>
             <input type="text" placeholder="Enter your name" id="name" name="number" [(ngModel)]="data.name" required>
-          </div> -->
-          <div class = 'output_container'>
-            
+          </div>
+          <!-- <div class = 'output_container'>
             <label for="base exponent">Name</label>
-            <output id="output_box" for="base exponent" style="height: 40%;">
+            <output id="output_box" for="base exponent" style="height: 45%;">
             {{userName}}
             </output>
           </div>
           <div class = 'output_container'>
             <label for="base exponent">Email</label>
-            <output id="output_box" for="base exponent" style="height: 40%;">
-            {{userName}}
+            <output id="output_box" for="base exponent"  [(ngModel)]="data.email" id="email" name="email" style="height: 45%;">
+            {{userEmail}}
             </output>
           </div>
+          <div class = 'output_container'>
+            <label for="base exponent">Phone Number</label>
+            <output id="output_box" for="base exponent"  style="height: 45%;">
+            {{userPhoneNumber}}
+            </output>
+          </div> -->
           <div class="input-box">
             <span class="details">Email</span>
             <input type="text" placeholder="Enter your email" id="email" name="email" [(ngModel)]="data.email" required>
@@ -58,10 +63,10 @@
           </div> -->
 
           <div class="input-box">
-            <span class="details">Category</span>
+            <span class="details" style="margin-left: 4%;">Category</span>
             <select class="form-select input-box" aria-label="Default select example" 
             placeholder="Category" id="category" name="category" [(ngModel)]="data.category" 
-            required style="width: 100%; height: 60%;">
+            required style="width: 100%; height: 60%">
             <option selected>Select</option>
             <option *ngFor="let i of category_data">{{i.category_name}}</option>
             <!-- <div *ngFor="let i of data.category"></div> -->

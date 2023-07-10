@@ -74,6 +74,9 @@ export class AdminApprovalRequestsComponent implements OnInit{
       )
       .then((resp: any) => {
         this.data.table = this.hs.xmltojson(resp, 'himadri_request_approval');
+
+        // reload table
+        $('#approval_table').DataTable().ajax.reload(); 
       });
       
 
