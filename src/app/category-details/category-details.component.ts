@@ -18,6 +18,7 @@ export class CategoryDetailsComponent implements OnInit {
     l2_attendee: '',
     category_id: '',
   };
+  
   category_data: any = [];
   changed_category: any = [];
   l2: any = [];
